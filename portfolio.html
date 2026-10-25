@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bay4lly — Software & Minecraft Mod Developer</title>
+    <meta name="description" content="bay4lly (Ali) - Minecraft Mod Developer, 3D WebGL Tools, and Machinima Systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050508;
+            --card-bg: rgba(15, 16, 24, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-hover: rgba(139, 92, 246, 0.45);
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #8b5cf6;
+            --accent-2: #3b82f6;
+            --discord: #5865F2;
+            --emerald: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Dot Matrix & Ambient Glow */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(circle at 50% 20%, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 20%, black 30%, transparent 80%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 22px;
+            background: rgba(15, 16, 24, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            margin-bottom: 72px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+        .hero {
+            margin-bottom: 72px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: #34d399;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 10px var(--emerald);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #c4b5fd 0%, #8b5cf6 45%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.12rem;
+            max-width: 660px;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 20px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            color: var(--text);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px -6px rgba(124, 58, 237, 0.5);
+        }
+
+        .btn-discord {
+            background: rgba(88, 101, 242, 0.15);
+            border-color: rgba(88, 101, 242, 0.4);
+            color: #dbeafe;
+        }
+
+        .btn-discord:hover {
+            background: rgba(88, 101, 242, 0.28);
+            border-color: var(--discord) !important;
+            box-shadow: 0 8px 25px -6px rgba(88, 101, 242, 0.45);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--card-border-hover);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 12px 30px -6px rgba(124, 58, 237, 0.75);
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-sub {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        section {
+            margin-bottom: 72px;
+        }
+
+        /* Collaborations / Creators */
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .creator-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.25s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .creator-item:hover {
+            border-color: var(--card-border-hover);
+            transform: translateY(-3px);
+            background: rgba(22, 24, 36, 0.85);
+        }
+
+        .creator-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #c4b5fd;
+            flex-shrink: 0;
+        }
+
+        .creator-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .creator-info span {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* Bento Projects Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+        }
+
+        .bento-card {
+            grid-column: span 4;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(14px);
+        }
+
+        .bento-card.featured {
+            grid-column: span 8;
+            background: linear-gradient(135deg, rgba(25, 22, 44, 0.85) 0%, rgba(15, 16, 24, 0.8) 100%);
+            border-color: rgba(139, 92, 246, 0.28);
+        }
+
+        .bento-card.half {
+            grid-column: span 6;
+        }
+
+        .bento-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.12), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        .bento-card:hover {
+            border-color: var(--card-border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+        }
+
+        .card-top {
+            margin-bottom: 24px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.73rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(139, 92, 246, 0.12);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+        }
+
+        .tag.blue {
+            background: rgba(59, 130, 246, 0.12);
+            color: #93c5fd;
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .tag.green {
+            background: rgba(16, 185, 129, 0.12);
+            color: #6ee7b7;
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        .arrow-icon {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            transition: transform 0.25s, color 0.25s;
+        }
+
+        .bento-card:hover .arrow-icon {
+            transform: translate(3px, -3px);
+            color: var(--text);
+        }
+
+        .bento-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .bento-card.featured h3 {
+            font-size: 1.55rem;
+        }
+
+        .bento-card p {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tech-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Discord Contact Banner */
+        .discord-banner {
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.16) 0%, rgba(15, 16, 24, 0.85) 100%);
+            border: 1px solid rgba(88, 101, 242, 0.35);
+            border-radius: 20px;
+            padding: 28px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 72px;
+        }
+
+        .discord-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .discord-info p {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+        }
+
+        .discord-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .user-tag {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #c4b5fd;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .user-tag:hover {
+            border-color: var(--discord);
+        }
+
+        /* Tech Stack */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .stack-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .stack-box h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .stack-tags span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 900px) {
+            .bento-card,
+            .bento-card.featured,
+            .bento-card.half {
+                grid-column: span 12;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .discord-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            footer {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <!-- NAVBAR -->
+        <nav>
+            <div class="logo">
+                bay4lly<span>.online</span>
+            </div>
+            <div class="nav-links">
+                <a href="#creators">Collaborations</a>
+                <a href="#projects">Projects</a>
+                <a href="#stack">Tech Stack</a>
+                <a href="https://discord.gg/qmCMm7cSV" target="_blank">Discord ↗</a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <header class="hero">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Available for Commissions & Collaborations
+            </div>
+            <h1>
+                Building custom game mechanics, 3D tools & <span class="gradient-text">modern software</span>.
+            </h1>
+            <p>
+                Hey, I'm <strong>Ali (bay4lly)</strong>. I develop custom Minecraft mods across Forge, NeoForge, and Fabric, along with 3D modeling plugins, machinima frameworks, and WebGL-powered studio tools.
+            </p>
+            <div class="hero-actions">
+                <a href="https://blockrig.site" target="_blank" class="btn btn-primary">Launch BlockRig Studio ↗</a>
+                <a href="https://discord.gg/qmCMm7cSV" target="_blank" class="btn btn-discord">Discord Server ↗</a>
+                <a href="https://modrinth.com/user/bay4lly" target="_blank" class="btn">Modrinth</a>
+                <a href="https://www.curseforge.com/members/bay4lly/projects" target="_blank" class="btn">CurseForge</a>
+                <a href="https://github.com/bay4lly" target="_blank" class="btn">GitHub</a>
+            </div>
+        </header>
+
+        <!-- COLLABORATIONS / CREATORS -->
+        <section id="creators">
+            <div class="section-header">
+                <h2 class="section-title">Worked With</h2>
+                <span class="section-sub">// Content Creators & Studios</span>
+            </div>
+            <div class="creators-grid">
+                <div class="creator-item">
+                    <div class="creator-avatar">FE</div>
+                    <div class="creator-info">
+                        <h3>Ferited</h3>
+                        <span>Custom 3D Models & Content Systems</span>
+                    </div>
+                </div>
+                <div class="creator-item">
+                    <div class="creator-avatar">MP</div>
+                    <div class="creator-info">
+                        <h3>Minecraft Parodileri</h3>
+                        <span>Machinima & Custom Mechanics</span>
+                    </div>
+                </div>
+                <div class="creator-item">
+                    <div class="creator-avatar">SP</div>
+                    <div class="creator-info">
+                        <h3>Samet Parlak</h3>
+                        <span>Scenario Mods & Gameplay</span>
+                    </div>
+                </div>
+                <div class="creator-item">
+                    <div class="creator-avatar">TR</div>
+                    <div class="creator-info">
+                        <h3>TostEAMR</h3>
+                        <span>Mod Development & 3D Assets</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS (BENTO GRID) -->
+        <section id="projects">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects & Mods</h2>
+                <span class="section-sub">// Open Source & Public Releases</span>
+            </div>
+
+            <div class="bento-grid">
+                <!-- 1. BlockRig Studio (8 Columns) -->
+                <a href="https://blockrig.site" target="_blank" class="bento-card featured">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag green">Web Studio • Live</span>
+                            <span class="arrow-icon">↗</span>
+                        </div>
+                        <h3>BlockRig Studio</h3>
+                        <p>
+                            An open-source, browser-based 3D Minecraft character rigging, posing, and high-resolution scene rendering studio requiring zero installation.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">WebGL</span>
+                        <span class="tech-pill">Canvas2D</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">3D Rendering</span>
+                    </div>
+                </a>
+
+                <!-- 2. PhotoChat (4 Columns) -->
+                <a href="https://modrinth.com/user/bay4lly" target="_blank" class="bento-card">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag">Minecraft Mod</span>
+                            <span class="arrow-icon">↗</span>
+                        </div>
+                        <h3>PhotoChat</h3>
+                        <p>
+                            Enhances in-game communication by integrating real-time image and photo sharing directly into the Minecraft chat interface.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Forge / Fabric</span>
+                    </div>
+                </a>
+
+                <!-- 3. Arcade Mod Reloaded (4 Columns) -->
+                <a href="https://www.curseforge.com/members/bay4lly/projects" target="_blank" class="bento-card">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag">Minecraft Mod</span>
+                            <span class="arrow-icon">↗</span>
+                        </div>
+                        <h3>Arcade Mod Reloaded</h3>
+                        <p>
+                            Brings playable classic arcade machines, custom 3D cabinet models, and interactive mini-games into the Minecraft world.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Custom GUI</span>
+                        <span class="tech-pill">3D Models</span>
+                    </div>
+                </a>
+
+                <!-- 4. GeckoMesh (4 Columns) -->
+                <a href="https://www.curseforge.com/members/bay4lly/projects" target="_blank" class="bento-card">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag blue">3D Tool & Library</span>
+                            <span class="arrow-icon">↗</span>
+                        </div>
+                        <h3>GeckoMesh</h3>
+                        <p>
+                            A specialized 3D mesh processing library and Blockbench plugin ecosystem for converting and optimizing complex geometry for Minecraft and GeckoLib.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">Blockbench API</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">Java</span>
+                    </div>
+                </a>
+
+                <!-- 5. Smart Books (4 Columns) -->
+                <a href="https://modrinth.com/user/bay4lly" target="_blank" class="bento-card">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag">Minecraft Mod</span>
+                            <span class="arrow-icon">↗</span>
+                        </div>
+                        <h3>Smart Books</h3>
+                        <p>
+                            Upgrades in-game book mechanics with advanced text formatting, interactive utilities, and improved usability.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Modrinth</span>
+                        <span class="tech-pill">CurseForge</span>
+                    </div>
+                </a>
+
+                <!-- 6. Mappet & BBS Ports (6 Columns) -->
+                <div class="bento-card half">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag blue">Port & Machinima</span>
+                        </div>
+                        <h3>Mappet & BBS Add-ons</h3>
+                        <p>
+                            Porting the iconic 1.12.2 machinima and scripting mod <strong>Mappet</strong> to modern <strong>1.20.1 Forge</strong> architecture, alongside custom extensions for McHorse's BBS ecosystem.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">Forge 1.20.1</span>
+                        <span class="tech-pill">BBS Ecosystem</span>
+                        <span class="tech-pill">Machinima</span>
+                    </div>
+                </div>
+
+                <!-- 7. MrCrayfish Vehicle & Secret Rooms Unofficial (6 Columns) -->
+                <a href="https://www.curseforge.com/members/bay4lly/projects" target="_blank" class="bento-card half">
+                    <div class="card-top">
+                        <div class="card-meta">
+                            <span class="tag green">Unofficial Ports</span>
+                            <span class="arrow-icon">↗</span>
+                        </div>
+                        <h3>Vehicle Mod & Secret Rooms (Unofficial)</h3>
+                        <p>
+                            Updated and maintained unofficial ports of the popular <strong>MrCrayfish's Vehicle Mod</strong> and <strong>Secret Rooms</strong> for modern Minecraft versions.
+                        </p>
+                    </div>
+                    <div class="tech-list">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Forge / NeoForge</span>
+                        <span class="tech-pill">Modern Port</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- DISCORD BANNER -->
+        <div class="discord-banner">
+            <div class="discord-info">
+                <h3>Get in Touch on Discord</h3>
+                <p>Join my community server or add me directly for custom mod commissions, collaborations, or project inquiries.</p>
+            </div>
+            <div class="discord-actions">
+                <div class="user-tag" onclick="copyDiscord(this)" title="Click to copy username">
+                    <span>@bay4llyofficial</span>
+                    <small id="copy-status" style="color: var(--text-dim); font-size: 0.75rem;">(Copy)</small>
+                </div>
+                <a href="https://discord.gg/qmCMm7cSV" target="_blank" class="btn btn-discord">Join Server ↗</a>
+            </div>
+        </div>
+
+        <!-- TECH STACK -->
+        <section id="stack">
+            <div class="section-header">
+                <h2 class="section-title">Technologies & Tools</h2>
+                <span class="section-sub">// Tech Stack</span>
+            </div>
+            <div class="stack-grid">
+                <div class="stack-box">
+                    <h4>Languages</h4>
+                    <div class="stack-tags">
+                        <span>Java</span>
+                        <span>C#</span>
+                        <span>C++</span>
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>GLSL</span>
+                    </div>
+                </div>
+                <div class="stack-box">
+                    <h4>Modding & Graphics</h4>
+                    <div class="stack-tags">
+                        <span>NeoForge</span>
+                        <span>Forge</span>
+                        <span>Fabric</span>
+                        <span>OpenGL</span>
+                        <span>WebGL</span>
+                    </div>
+                </div>
+                <div class="stack-box">
+                    <h4>3D & Media</h4>
+                    <div class="stack-tags">
+                        <span>Blockbench</span>
+                        <span>Blender</span>
+                        <span>GIMP / Pinta</span>
+                        <span>Kdenlive</span>
+                    </div>
+                </div>
+                <div class="stack-box">
+                    <h4>Systems & Frameworks</h4>
+                    <div class="stack-tags">
+                        <span>GNU/Linux</span>
+                        <span>Git & GitHub</span>
+                        <span>WPF / XAML</span>
+                        <span>CustomTkinter</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <span>© 2026 Ali (bay4lly). All rights reserved.</span>
+            <span>Discord: bay4llyofficial • bay4lly.online</span>
+        </footer>
+    </div>
+
+    <script>
+        // Interactive spotlight hover effect on Bento cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            });
+        });
+
+        // One-click copy for Discord username
+        function copyDiscord(el) {
+            navigator.clipboard.writeText('bay4llyofficial');
+            const status = document.getElementById('copy-status');
+            status.textContent = '✓ Copied!';
+            status.style.color = '#34d399';
+            setTimeout(() => {
+                status.textContent = '(Copy)';
+                status.style.color = 'var(--text-dim)';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
