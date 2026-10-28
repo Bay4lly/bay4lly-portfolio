@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0c1013">
-  <meta name="description" content="bay4lly.online — Minecraft modları, modern portlar ve 3D araçlar. / Minecraft mods, modern ports and 3D tools.">
+  <meta name="theme-color" content="#20120f">
+  <meta name="description" content="Minecraft mods, tools, projects and collaborations by Ali (bay4lly).">
   <meta property="og:title" content="bay4lly.online — Minecraft Mods & Tools">
   <title>bay4lly.online — Minecraft Mods & Tools</title>
   <link rel="icon" type="image/webp" href="assets/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0d10;--bg2:#10151a;--ink:#f4f1e9;--mute:#abaeb0;--muted2:#6f787e;--line:rgba(245,243,234,.13);--orange:#ffaf73;--apricot:#f6c7a3;--blue:#a6d8e6;--max:1280px;--side:max(26px,calc((100vw - var(--max))/2));--cursor-x:80vw;--cursor-y:20vh;--progress:0;--herop:0;--scrolly:0px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px;overflow-x:clip}body{background:var(--bg);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased}button,a{font:inherit}a{color:inherit;text-decoration:none}button{color:inherit;cursor:pointer}img{display:block;max-width:100%}::selection{background:#ffaf73;color:#141419}
@@ -80,26 +80,345 @@ dialog{border:1px solid #ffffff30;background:#14191ceF;backdrop-filter:blur(20px
 @media(max-width:520px){.brand{font-size:16px;gap:10px}.brand img{width:37px;height:37px}.lang button{padding:8px 7px}.nav-end{gap:8px}.hero-sticky{padding-top:130px}.hero-title{font-size:clamp(55px,13vw,69px)}.hero-text{font-size:17px}.hero-media{min-height:320px;height:390px}.hero-media .visual-frame{right:0;bottom:30px;left:0}.glass-caption{right:0;bottom:0;min-width:190px}.float-badge{left:-7px}.about h2,.section-title{font-size:clamp(49px,12vw,63px)}.about-desc{font-size:21px}.about-row{grid-template-columns:24px 1fr auto 17px;gap:9px}.about-row h3{font-size:15px}.about-row span{font-size:11px}.project-tiles{grid-template-columns:1fr}.tile{min-height:245px;padding:26px}.tile-icon{margin-bottom:18px}.people-grid{grid-template-columns:1fr;gap:13px;margin-top:35px}.person{display:grid;grid-template-columns:85px 1fr;column-gap:20px;align-items:center;min-height:130px}.person-avatar{width:82px;height:82px;border-radius:17px;margin:0;grid-row:span 2}.person h3{align-self:end}.person p{align-self:start}.person-number{top:10px;right:15px}.contact h2{font-size:65px}.footer-content{flex-wrap:wrap}.modal-body{padding:30px 24px}.modal-body h2{font-size:31px}.social-link strong{font-size:21px}}
 @media(max-width:365px){.site-nav .nav-shell{gap:6px;padding:8px}.brand{font-size:14px;gap:7px}.brand img{width:32px;height:32px}.lang{padding:2px}.lang button{padding:8px 5px}.menu-toggle{width:39px;height:39px;padding:10px}.nav-end{gap:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;filter:none;transform:none}.hero-copy,.hero-media,.bg-drift{transform:none!important}}
+
+/* ===== MINECRAFT CINEMATIC HOME V6 ===== */
+.home-headline{width:100%;display:flex;justify-content:center;align-items:center}
+.home-headline img{display:block;width:min(81vw,1100px);height:auto;image-rendering:pixelated;filter:drop-shadow(0 7px 0 rgba(30,17,11,.68)) drop-shadow(0 12px 25px #0009)}
+
+:root{--orange:#f3a318;--apricot:#ffc65d}
+.site-nav{top:0;background:linear-gradient(180deg,#080909b8 0%,#08090933 70%,transparent);transition:background .3s}
+.site-nav .nav-shell{max-width:1500px;margin:0 auto;padding:17px 28px;border:0;box-shadow:none;border-radius:0;background:transparent;backdrop-filter:none;min-height:83px}
+body.has-scrolled .site-nav{background:#090d0edf;backdrop-filter:blur(20px);border-bottom:1px solid #ffffff1a}
+.brand{font-family:'Pixelify Sans','Space Grotesk',system-ui,sans-serif;font-size:22px;letter-spacing:-.02em;text-shadow:0 2px 0 #000a}
+.brand img{height:49px;width:49px;border-radius:10px;box-shadow:0 5px 15px #0006;image-rendering:pixelated}
+.nav-list{position:absolute;left:50%;transform:translateX(-50%);gap:16px}
+.nav-list a{font-family:'Pixelify Sans','Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#f6eee1;text-shadow:0 2px 2px #000a}
+.nav-list a:hover,.nav-list a.on{background:transparent;color:#ffd27a;text-shadow:0 0 18px #f39841a0}
+.nav-end{margin-left:auto;gap:15px}
+.nav-cta{font-family:'Pixelify Sans',monospace;min-height:46px;display:flex;align-items:center;background:linear-gradient(#ffc839,#f4a513);border:2px solid #e9920c;border-bottom:5px solid #9f5600;border-radius:8px;color:#1a1209;font-size:16px;text-transform:uppercase;text-shadow:none;padding:8px 16px;white-space:nowrap}
+.lang{border:0;background:#0b0b0b8f;border-radius:7px;padding:3px}
+.lang button{font-family:'Pixelify Sans',sans-serif;font-size:17px;color:#bfc1c2;padding:10px 12px;border-radius:6px}
+.lang button.active{background:#fff;color:#111}
+.hero{min-height:100svh;height:100svh;position:relative;display:grid;place-items:center;overflow:hidden;background:#19150d;isolation:isolate}
+.home-backdrop{position:absolute;inset:-4%;background-image:url('assets/home-background.webp');background-position:center;background-size:cover;transform:translateY(calc(var(--herop) * 36px)) scale(calc(1.09 + var(--herop) * .035));animation:home-breathe 18s ease-in-out infinite alternate;will-change:transform;z-index:-3}
+.home-shade{position:absolute;inset:0;background:linear-gradient(180deg,#050505bd 0%,#15100745 25%,#0705033b 50%,#020303d6 98%),radial-gradient(ellipse 70% 65% at 50% 44%,transparent 15%,#09070488 100%),linear-gradient(90deg,#0908065b,transparent 33%,transparent 75%,#07080762);pointer-events:none;z-index:-2}
+.home-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.home-particles i{position:absolute;width:3px;height:3px;background:#ffcd72;border-radius:100%;box-shadow:0 0 13px #ffa2399c;opacity:.45;animation:float-dust linear infinite}
+@keyframes float-dust{0%{transform:translateY(6vh);opacity:0}10%{opacity:.4}90%{opacity:.4}100%{transform:translateY(-106vh);opacity:0}}
+@keyframes home-breathe{to{transform:translate3d(-.5%,1.2%,0) scale(1.10)}}
+.home-content{position:relative;z-index:2;width:min(calc(100% - 40px),1220px);text-align:center;transform:translateY(-1vh);padding-top:60px;display:flex;align-items:center;flex-direction:column}
+.home-eyebrow{font-family:'Pixelify Sans','DM Sans',sans-serif;font-weight:600;color:#ffe0aa;letter-spacing:.24em;font-size:clamp(13px,1.3vw,18px);text-shadow:0 2px 10px #000;opacity:.9}
+.home-headline{font-family:'Pixelify Sans','Courier New',monospace;font-size:clamp(54px,9.6vw,158px);line-height:1.04;font-weight:700;color:#fff;letter-spacing:-.06em;margin:20px 0 32px;white-space:nowrap;text-shadow:0 5px 0 #2d211aaa,0 14px 42px #000b;overflow:visible}
+.home-headline span{color:#fff}
+.home-buttons{display:flex;align-items:center;justify-content:center;gap:17px;flex-wrap:wrap}
+.home-block-button{font-family:'Pixelify Sans','Space Grotesk',sans-serif;font-weight:700;font-size:clamp(16px,1.9vw,24px);letter-spacing:.01em;line-height:1.1;text-align:center;display:inline-flex;justify-content:center;align-items:center;min-height:67px;min-width:238px;padding:16px 22px;border:3px solid #eae9e5;border-bottom:9px solid #1f1f1f;border-radius:2px;box-shadow:0 9px 0 #0006, inset 0 2px 0 #ffffff50;text-shadow:0 2px #0004;transition:transform .15s,filter .18s,box-shadow .18s;position:relative;overflow:hidden}
+.home-primary{background:#f1a20e;border-color:#ffe3ab;border-bottom-color:#985605;color:#fff}
+.home-secondary{background:#6c6d70;border-color:#d4d4d4;border-bottom-color:#3c3c3d;color:#fff}
+.home-block-button:hover{filter:brightness(1.12);transform:translateY(-4px)}
+.home-block-button:active,.home-block-button.is-pressed{transform:translateY(4px) scale(.98)!important;box-shadow:0 1px 0 #0006}
+.home-scroll{position:absolute;bottom:27px;left:50%;transform:translateX(-50%);z-index:4;text-align:center;font:700 13px 'Pixelify Sans',monospace;letter-spacing:.18em;color:#d8d3c7;opacity:.7;display:flex;align-items:center;flex-direction:column;gap:2px}
+.scroll-chevron{font:700 32px 'Pixelify Sans',monospace;animation:scrollline 1.6s ease-in-out infinite}
+.home-character-frame{position:absolute;bottom:-12px;left:clamp(0px,2vw,28px);width:min(16vw,215px);z-index:1;pointer-events:none;filter:drop-shadow(0 18px 23px #000d);transform:translateY(calc(var(--herop) * 22px))}
+.home-character{width:100%;image-rendering:pixelated;transform:rotate(-3deg);transform-origin:bottom center;animation:skin-bob 6s ease-in-out infinite alternate}
+@keyframes skin-bob{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-10px) rotate(-1deg)}}
+.about{border-top:1px solid #dc862e24;background:linear-gradient(180deg,#111211,#111719 65%,#0a0d10)}
+.about h2 em,.contact h2 em{color:#ffcd81}
+.chapter-num{color:#e8a347}
+.tile:hover{border-color:#ffbe7190}
+@media(min-width:1000px){.hero{scroll-margin-top:0}}
+@media(max-width:1100px){.nav-list{gap:0}.nav-list a{font-size:16px;padding-inline:8px}.nav-cta{font-size:14px}}
+@media(max-width:780px){.site-nav .nav-shell{margin-inline:0;padding:12px 18px}.nav-list{display:none}.nav-end{margin-left:auto}.nav-cta{display:none}.brand{font-size:18px}.brand img{width:41px;height:41px}.menu-toggle{border:1px solid #ffffff55;background:#05060872}.mobile-links{top:66px;background:#10100ff2}.hero{min-height:660px;height:100svh}.home-backdrop{background-position:57% center}.home-headline{font-size:clamp(42px,10.9vw,86px)}.home-character-frame{width:18vw;left:0;bottom:-22px;opacity:.78}.home-content{padding-top:40px}.home-buttons{gap:12px}.home-block-button{min-height:58px;min-width:180px;font-size:17px;border-bottom-width:7px}.home-scroll{bottom:12px}}
+@media(max-width:480px){.home-headline{font-size:clamp(37px,11vw,54px);margin:23px 0 26px}.home-eyebrow{font-size:12px;letter-spacing:.11em}.home-buttons{flex-direction:column;width:min(100%,305px)}.home-block-button{width:100%;min-height:58px}.home-character-frame{width:23vw;left:-12px;opacity:.58}.home-content{transform:translateY(-6vh)}.brand{font-size:16px}.lang button{font-size:14px;padding:8px}.nav-end{gap:7px}.site-nav .nav-shell{padding:10px 12px}.home-scroll{font-size:11px}}
+@media(max-height:590px) and (min-width:781px){.home-headline{font-size:clamp(50px,8vw,100px);margin:10px 0 19px}.home-block-button{min-height:54px}.home-character-frame{width:17vw}}
+@media(prefers-reduced-motion:reduce){.home-backdrop,.home-character,.home-particles i{animation:none!important}.home-content{transform:none}.home-character-frame{transform:none}}
+
+/* ============= BAY4LLY V7: WARM STORYBOOK SECTIONS ============= */
+:root{--orange:#ffb633;--apricot:#ffe3a4;--bg:#160c0c;--ink:#fff3df;--line:rgba(255,227,196,.12)}
+body{background:#120b0b}
+.bg-drift{background:radial-gradient(ellipse 39% 36% at 15% 20%,rgba(218,97,56,.12),transparent 80%),radial-gradient(ellipse 39% 34% at 85% 70%,rgba(215,140,54,.08),transparent 83%)}
+.site-nav .nav-shell{max-width:1440px}
+.nav-list a{font-size:clamp(15px,1.15vw,17px);padding-inline:12px}
+.nav-list{gap:2px}
+.rail a.active{color:#ffd18a}.rail a.active::after{background:#ffb633}
+.about{padding:110px 0 115px;background:linear-gradient(180deg,#19100f,#2f1a17 68%,#331c18);border-top:1px solid #c36d4530}
+.about::after{color:#ffc49308}
+.about h2,.section-title,.feature-body h3,.contact h2{font-family:'Pixelify Sans','Space Grotesk',sans-serif;letter-spacing:-.025em}
+.about h2{font-size:clamp(57px,6.5vw,104px);line-height:.97}
+.about h2 em{color:#ffd18a}
+.about-desc{color:#ffe3ce;font-size:clamp(21px,2.2vw,27px)}
+.about-row{border-color:#ffd4a824}.about-row:hover{background:#fff1b80c}
+.about-row b{color:#ffbe55}.about-row span{color:#d5ad99}
+.chapter-num{font-family:'Pixelify Sans',sans-serif;font-size:15px;letter-spacing:.065em;color:#ffc15e}
+/* Process: warm pixel-inspired hanging notes */
+.work-process{overflow:hidden;padding:108px 0 110px;background:radial-gradient(ellipse at 53% 33%,#bd6d5638,transparent 60%),linear-gradient(180deg,#331c18,#90503f 32%,#945343 63%,#2b1515 100%);border-top:1px solid #f9c5aa18;border-bottom:1px solid #ffbe8721}
+.work-process::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;background-image:radial-gradient(#ffd9bd1b .7px,transparent .8px);background-size:19px 19px;z-index:-1}
+.process-inner{position:relative;text-align:center}
+.process-kicker{color:#ffd7b5;font:700 15px 'Pixelify Sans',monospace;letter-spacing:.2em;margin-bottom:12px}
+.process-heading{font:700 clamp(53px,5.6vw,86px)/1.04 'Pixelify Sans','Courier New',monospace;letter-spacing:-.025em;margin:0;color:#fff2da;text-shadow:0 5px 22px #3817175e}
+.process-heading span{color:#ffe1a5}
+.process-summary{margin:16px auto 0;max-width:600px;color:#f8dbd0;line-height:1.5;font-size:clamp(16px,1.4vw,19px)}
+.storyline{max-width:1200px;margin:78px auto 26px;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(30px,6vw,90px);align-items:center;min-height:470px}
+.story-connector{position:absolute;z-index:0;inset:68px -5% auto;width:110%;height:245px;filter:drop-shadow(0 0 12px #ec958e88);overflow:visible;pointer-events:none}
+.story-card{position:relative;min-height:315px;padding:40px 28px 34px;display:flex;flex-direction:column;text-align:left;border-radius:18px 23px 19px 22px;border:2px solid #e8b88890;box-shadow:0 24px 0 -15px #32161078,0 25px 55px #2f110a76,inset 0 4px 12px #ffffff25;color:#583523;transform-origin:center;transition:transform .55s cubic-bezier(.15,1.4,.36,1),box-shadow .4s;z-index:2}
+.story-card.reveal.in{transform:rotate(var(--note-tilt)) translateY(var(--note-y))}
+.story-card.reveal.in:hover{transform:rotate(0deg) translateY(calc(var(--note-y) - 16px)) scale(1.03);box-shadow:0 30px 70px #31140d8a}
+.story-amber{--note-tilt:-4deg;--note-y:40px;background:linear-gradient(145deg,#f9d68c,#e6b964);border-color:#ffdf9b}
+.story-cream{--note-tilt:1.5deg;--note-y:-12px;background:linear-gradient(145deg,#f9edc8,#e8d0a6);border-color:#ffeed1}
+.story-lavender{--note-tilt:3deg;--note-y:35px;background:linear-gradient(145deg,#e2d2f9,#c9b1eb);border-color:#efdfff;color:#4d3972}
+.story-pin{position:absolute;top:-22px;left:51%;width:10px;height:48px;background:linear-gradient(#fff9ddaa,#f4c49a);border-radius:4px;transform:rotate(4deg);box-shadow:1px 4px 4px #40231a80}
+.story-pin:after{content:'';position:absolute;bottom:-5px;left:-7px;width:24px;height:24px;border:5px solid #c96d46;border-radius:50%;background:#fff4d4;box-shadow:0 4px 7px #0004}
+.story-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.story-top b{font:700 clamp(36px,4vw,55px) 'Pixelify Sans','Courier New',monospace;color:#e6a733;text-shadow:0 2px #fff5b0}
+.story-cream .story-top b{color:#59a6d0}.story-lavender .story-top b{color:#976ad4}
+.story-top img{width:75px;height:75px;object-fit:contain;image-rendering:auto;filter:drop-shadow(0 8px 7px #0003)}
+.story-card h3{font:700 29px/1.05 'Pixelify Sans','Courier New',monospace;letter-spacing:-.025em;margin:0 0 14px}
+.story-card p{font-size:15px;line-height:1.55;font-weight:600;margin:0;opacity:.82;max-width:24ch}
+.process-contact{display:inline-flex;align-items:center;justify-content:center;margin-top:48px;border:1px solid #ffe1b677;padding:15px 24px;background:#251211aa;border-radius:7px;font:700 19px 'Pixelify Sans',sans-serif;color:#ffe3b8;transition:transform .26s,background .26s}
+.process-contact:hover{transform:translateY(-3px);background:#3b201a}
+/* Projects warm tint, no excessive spacing */
+.projects{padding:113px 0 125px;background:linear-gradient(180deg,#190f10,#140d0e)}
+.projects .section-title{color:#ffe4a1}
+.project-feature{background:#221918;border-color:#ebb2732e}
+.feature-body{background:radial-gradient(ellipse at 60% 50%,#9a4b2817,transparent 73%)}
+.project-tiles{gap:18px}
+.tile{background:linear-gradient(145deg,#271b18,#180f10);border-color:#f9c29020}
+.tile:hover{background:linear-gradient(145deg,#38231d,#211313);border-color:#ffc88380}
+.tile h3{font-family:'Pixelify Sans',sans-serif;letter-spacing:-.02em;font-size:clamp(22px,2.1vw,28px)}
+.tile p,.feature-body p{color:#c4ada0}
+.tile .tile-arr{border-color:#eab78e40}
+/* Two slanted, continuous lanes of real collaborators */
+.collabs-marquee{padding:110px 0 105px;background:radial-gradient(ellipse at 50% 6%,#7b3c1d62,transparent 54%),radial-gradient(ellipse at 8% 62%,#6e291d4f,transparent 48%),linear-gradient(180deg,#160d0c,#30160f 45%,#110b0b);min-height:auto;overflow:hidden}
+.collab-ambient{position:absolute;inset:0;background:linear-gradient(125deg,transparent 30%,#c2692311 45%,transparent 59%);animation:collab-glimmer 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes collab-glimmer{from{transform:translateX(-11%)}to{transform:translateX(11%)}}
+.collabs-heading-area{text-align:center;position:relative}
+.collabs-heading-area .chapter-num{justify-content:center;margin-bottom:15px}
+.collabs-heading-area .chapter-num:before{display:none}
+.collabs-heading-area .section-title{font-size:clamp(49px,6.4vw,89px);color:#ffdd87}
+.collabs-heading-area p{margin:10px auto 0;font-size:18px;color:#e2bfa6;max-width:560px}
+.collabs-kicker{font:700 15px 'Pixelify Sans',sans-serif;letter-spacing:.20em;color:#e4c09f;display:flex;align-items:center;gap:18px;margin:74px 0 36px}
+.collabs-kicker:after,.collabs-kicker:before{content:"";height:1px;background:#db9e6d4e;flex:1}
+.marquee-lanes{display:grid;gap:23px;position:relative;transform:rotate(-1.35deg) scale(1.025);margin:0 -2vw;padding:2px 0 18px}
+.marquee-lanes:after,.marquee-lanes:before{content:"";position:absolute;top:-3%;bottom:-3%;width:min(12vw,170px);pointer-events:none;z-index:4}
+.marquee-lanes:before{left:0;background:linear-gradient(90deg,#25120fe0,transparent)}
+.marquee-lanes:after{right:0;background:linear-gradient(270deg,#25120fe0,transparent)}
+.marquee-viewport{overflow:visible;width:100%}
+.marquee-track{display:flex;width:max-content;will-change:transform;animation:marquee-move 43s linear infinite}
+.marquee-track.lane-two{animation-duration:48s;animation-direction:reverse;margin-left:-60px}
+.marquee-lanes:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee-move{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-group{display:flex;flex:0 0 auto;gap:20px;padding-right:20px}
+.marquee-card{display:flex;align-items:center;gap:18px;flex:none;width:325px;min-height:159px;padding:15px;border-radius:5px;border:1px solid color-mix(in srgb,var(--m-hue),#000 73%);background:linear-gradient(115deg,color-mix(in srgb,var(--m-hue),#15110f 91%),#171010 85%);box-shadow:0 18px 33px #0805058a;transform:skewX(-1deg);transition:transform .28s,border-color .28s,box-shadow .28s}
+.marquee-card:hover{transform:skewX(0) translateY(-7px) scale(1.045);border-color:var(--m-hue);box-shadow:0 16px 40px #000b;z-index:3}
+.marquee-visual{display:grid;place-items:center;width:116px;height:116px;border:1px solid #f2c89325;background:radial-gradient(ellipse at center,#f8b86011,#0809094d);flex:none}
+.marquee-visual img{width:91px;height:91px;border-radius:11px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 10px 6px #0006);transition:transform .35s}
+.marquee-card:hover img{transform:rotate(-5deg) scale(1.1)}
+.marquee-text{min-width:0;text-align:left}.marquee-text small{display:block;font:700 10px/1.2 'DM Sans',sans-serif;letter-spacing:.13em;color:#b89d90;margin-bottom:10px}
+.marquee-text strong{display:block;color:#fff5e2;font:700 25px/1.05 'Pixelify Sans','Courier New',monospace;word-wrap:break-word}
+.marquee-text em{display:inline-block;font:700 11px 'Pixelify Sans',sans-serif;border:1px solid color-mix(in srgb,var(--m-hue),transparent 45%);padding:6px 8px;border-radius:12px;margin-top:12px;color:var(--m-hue);font-style:normal}
+.collab-endcap{display:flex;justify-content:space-between;gap:14px;margin-top:48px;font:700 15px 'Pixelify Sans',sans-serif;color:#dcb49a}
+.collab-endcap span:last-child{color:#fdc667;font-size:23px}
+/* Contact warm finish */
+.contact{padding:115px 0;background:radial-gradient(ellipse at 80% 100%,#9b4d3827,transparent 58%),#1b1010}
+.contact h2 em{color:#ffcc87}.contact p{color:#d6b4a4}.social-link{border-color:#f5c39d1d}.social-link:hover{background:#d99b7310}
+footer{background:#100a0a;border-color:#f6c38c22}
+/* Motion, language switch, and mobile */
+html{scroll-padding-top:95px;scroll-behavior:smooth}
+@media(max-width:1100px){.nav-list a{font-size:14px;padding:10px 7px}.marquee-card{width:295px}.storyline{gap:35px}.story-card{padding:35px 22px}.story-card h3{font-size:25px}}
+@media(max-width:780px){.about{padding:94px 0}.work-process{padding:85px 0 90px}.storyline{display:grid;grid-template-columns:1fr;gap:37px;min-height:auto;max-width:470px;margin-top:55px}.story-connector{display:none}.story-card{min-height:0;padding:28px;transform:none!important;max-width:100%}.story-card.reveal.in:hover{transform:translateY(-6px)!important}.story-card h3{font-size:28px}.story-card p{max-width:38ch}.story-pin{top:-18px}.story-top{margin-bottom:10px}.story-top img{width:67px;height:67px}.process-contact{margin-top:24px}.collabs-marquee{padding:85px 0 90px}.collabs-kicker{margin-top:48px}.marquee-lanes{transform:rotate(-1deg) scale(1.025);gap:17px}.marquee-card{width:265px;min-height:137px;padding:12px;gap:13px}.marquee-visual{width:88px;height:92px}.marquee-visual img{width:74px;height:74px}.marquee-text strong{font-size:23px}.marquee-text em{font-size:10px}.marquee-track{animation-duration:35s}.marquee-track.lane-two{animation-duration:40s}.collab-endcap{margin-top:40px}}
+@media(max-width:520px){.process-heading{font-size:clamp(43px,10vw,59px)}.process-summary{font-size:16px}.story-card{padding:24px 23px}.story-card h3{font-size:26px}.story-top b{font-size:38px}.collabs-heading-area .section-title{font-size:clamp(35px,8.8vw,55px);letter-spacing:-.045em}.collabs-heading-area p{font-size:16px}.collabs-kicker{font-size:11px;letter-spacing:.10em}.marquee-card{width:240px}.marquee-text strong{font-size:21px}.marquee-text em{font-size:9px}.marquee-visual{width:74px;height:80px}.marquee-visual img{width:62px;height:62px}.process-contact{font-size:17px}.projects{padding:90px 0}.contact{padding:90px 0}}
+@media(prefers-reduced-motion:reduce){.collab-ambient,.marquee-track{animation:none!important}.marquee-lanes{transform:none!important}.marquee-viewport{overflow-x:auto}.story-card.reveal.in,.story-card.reveal.in:hover{transform:none!important}}
+
+
+/* V11 — clear three-dimensional ALI lettering, original amber theme intact. */
+.about{position:relative;isolation:isolate}
+.about::after{content:none!important}
+.about .about-grid{position:relative;z-index:2}
+.about-3d-word{
+  position:absolute;z-index:0;left:51%;top:59%;
+  display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.7vw,32px);
+  white-space:nowrap;pointer-events:none;user-select:none;
+  font-family:'Courier New',Courier,monospace;font-weight:900;
+  font-size:clamp(130px,23vw,345px);line-height:1;letter-spacing:0;
+  color:#e9a779;opacity:.11;
+  transform:translate(-50%,-50%) perspective(1000px) rotateX(8deg) rotateY(-8deg);
+  filter:drop-shadow(10px 19px 12px rgba(16,4,3,.36));
+}
+.about-3d-word span{display:block;position:relative;
+  text-shadow:1px 1px 0 #bd744f,2px 2px 0 #af6548,3px 3px 0 #a05d42,
+   4px 4px 0 #96563d,5px 5px 0 #864a37,6px 6px 0 #75402f,
+   7px 7px 0 #64392c,8px 8px 0 #5a3126,9px 11px 10px #24110d;
+}
+/* Slab-serif uppercase I stays visibly distinct from L on all platforms. */
+.about-3d-word span:last-child{font-family:'Courier New',Courier,monospace;margin-left:.02em}
+/* Two sweeping rows, but each person appears exactly once, no cloned groups. */
+.unique-collab-lanes{display:grid;gap:23px;transform:rotate(-1.25deg) scale(1.015);margin:0;padding:6px 0 20px}
+.unique-collab-lanes .marquee-viewport{overflow:hidden;width:100%;padding:10px 0 16px;scrollbar-width:thin}
+.unique-collab-lanes .unique-track{
+  display:flex;align-items:center;gap:20px;padding-right:0;margin-left:0;
+  width:max-content;will-change:transform;animation:unique-lane-glide 22s ease-in-out infinite alternate;
+}
+.unique-collab-lanes .unique-track.lane-one{animation-duration:24s}
+.unique-collab-lanes .unique-track.lane-two{animation-duration:27s;animation-direction:alternate-reverse;margin-left:0}
+.unique-collab-lanes .marquee-card{width:clamp(312px,28vw,410px);min-height:159px}
+.unique-collab-lanes:hover .unique-track{animation-play-state:paused}
+.unique-collab-lanes .unique-track .marquee-card:hover{transform:skewX(0) translateY(-5px) scale(1.015)}
+@keyframes unique-lane-glide{
+  from{transform:translate3d(6vw,0,0)}
+  to{transform:translate3d(max(6vw, calc(94vw - 100%)),0,0)}
+}
+.collabs-kicker{margin-bottom:24px}
+.collab-endcap{margin-top:30px}
+@media(max-width:780px){
+ .about-3d-word{top:46%;left:52%;font-size:clamp(130px,27vw,260px);gap:clamp(7px,1.5vw,16px);opacity:.095}
+ .unique-collab-lanes{transform:rotate(-.6deg);gap:12px;padding-left:8px;padding-right:8px}
+ .unique-collab-lanes .marquee-viewport{overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+ .unique-collab-lanes .unique-track{animation:none!important;padding-inline:8px}
+ .unique-collab-lanes .marquee-card{width:min(76vw,340px);scroll-snap-align:center;min-height:138px}
+ .unique-collab-lanes .marquee-visual{width:87px;height:89px}
+ .unique-collab-lanes .marquee-visual img{width:73px;height:73px}
+}
+@media(max-width:520px){
+ .about-3d-word{top:33%;font-size:clamp(94px,27vw,150px);gap:5px;opacity:.10}
+ .unique-collab-lanes .marquee-card{width:min(82vw,328px);min-height:128px;padding:12px}
+ .unique-collab-lanes .marquee-text strong{font-size:clamp(19px,5.5vw,25px)}
+ .unique-collab-lanes .marquee-text em{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.unique-collab-lanes .unique-track{animation:none!important;will-change:auto}}
+/* Restore the soundless small click flare in original warm colors. */
+.pixel-click-layer{position:fixed;inset:0;z-index:190;pointer-events:none;overflow:hidden}
+.click-burst{position:absolute;width:48px;height:48px;transform:translate(-50%,-50%);border:2px solid #ffc881;border-radius:3px;animation:click-burst .52s cubic-bezier(.1,.85,.25,1) both;box-shadow:0 0 18px #f2a56460}
+.click-burst::after{content:'';position:absolute;inset:7px;border:1px solid #ffe9b0a0;border-radius:2px}
+.click-bit{position:absolute;width:6px;height:6px;background:var(--bit-color,#f6c185);border-radius:1px;left:0;top:0;transform:translate(-50%,-50%);animation:click-bit .58s cubic-bezier(.08,.6,.25,1) both}
+@keyframes click-burst{0%{opacity:0;transform:translate(-50%,-50%) scale(.28)}22%{opacity:.75}100%{opacity:0;transform:translate(-50%,-50%) scale(1.25)}}
+@keyframes click-bit{0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}75%{opacity:.9}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(45deg) scale(.6)}}
+@media(max-width:1160px){.single-collab-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:800px}.single-collab-grid .marquee-text strong{font-size:25px}}
+@media(max-width:780px){.about-3d-word{font-size:clamp(170px,35vw,300px);top:42%;opacity:.085}.single-collab-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.single-collab-grid .marquee-card{min-height:150px}.single-collab-grid .marquee-card .marquee-visual{width:74px;height:80px}.single-collab-grid .marquee-card .marquee-visual img{width:65px;height:65px}.single-collab-grid .marquee-text strong{font-size:21px}}
+@media(max-width:560px){.about-3d-word{left:50%;top:35%;font-size:42vw;opacity:.09}.single-collab-grid{grid-template-columns:1fr;max-width:440px}.single-collab-grid .marquee-card{min-height:110px;gap:18px}.single-collab-grid .marquee-card .marquee-visual{width:90px;height:90px}.single-collab-grid .marquee-card .marquee-visual img{width:74px;height:74px}.single-collab-grid .marquee-text strong{font-size:24px}.collabs-kicker{margin-bottom:23px}}
+@media(prefers-reduced-motion:reduce){.about-3d-word{will-change:auto}.click-bit,.click-burst{display:none!important}}
+
+/* V12: Minecraft-inspired closing scene; user-provided assets, not copied brand artwork. */
+footer.game-footer{position:relative;isolation:isolate;overflow:hidden;padding:0;color:#f7e7cb;font-size:14px;font-weight:500;letter-spacing:0;border-top:1px solid #c58a442e;background:
+ radial-gradient(ellipse 55% 73% at 20% 36%,rgba(102,49,26,.47),transparent 78%),
+ radial-gradient(ellipse 48% 64% at 82% 40%,rgba(61,41,68,.22),transparent 79%),
+ linear-gradient(170deg,#0a080d 2%,#130c10 46%,#09080c 100%)}
+.game-footer:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.32;background-image:linear-gradient(#ffc16e0d 1px,transparent 1px),linear-gradient(90deg,#ffc16e0d 1px,transparent 1px);background-size:76px 76px;mask-image:linear-gradient(180deg,#000,transparent 78%)}
+.game-footer:after{content:'';pointer-events:none;position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 110%,#5c281e36,transparent 60%)}
+.foot-specks{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:-1}.foot-specks i{position:absolute;width:var(--s,7px);height:var(--s,7px);left:var(--x,20%);top:var(--y,20%);background:var(--c,#f7b86f);opacity:.25;transform:rotate(8deg);box-shadow:0 0 12px #ed914b18;animation:foot-pixel-float var(--d,16s) ease-in-out infinite alternate}
+@keyframes foot-pixel-float{from{translate:0 11px;opacity:.12}to{translate:7px -16px;opacity:.48}}
+.foot-inner{position:relative;z-index:1;padding-top:66px}
+.foot-main{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,.8fr);gap:clamp(40px,7vw,135px);align-items:start;min-height:390px}
+.foot-identity{display:flex;gap:clamp(20px,3vw,48px);align-items:center;min-height:335px}
+.foot-mascot{position:relative;flex:0 0 clamp(145px,17vw,230px);height:325px;display:flex;align-items:end;justify-content:center;perspective:650px}
+.foot-mascot:before{content:'';position:absolute;bottom:10px;width:90%;height:52px;background:radial-gradient(ellipse,#e69e624a,transparent 69%);filter:blur(6px)}
+.foot-mascot:after{content:'';position:absolute;bottom:3px;left:10%;right:10%;height:3px;background:linear-gradient(90deg,transparent,#e8b479a8,transparent)}
+.foot-mascot .mascot-halo{position:absolute;left:18%;right:18%;top:7%;height:230px;background:radial-gradient(ellipse,#ef9a633e,transparent 68%);filter:blur(29px);animation:mascot-light 7s ease-in-out infinite alternate}
+@keyframes mascot-light{to{transform:scale(1.12);opacity:.55}}
+.foot-mascot img{width:auto;max-width:100%;height:298px;image-rendering:pixelated;object-fit:contain;filter:drop-shadow(0 10px 16px #000b) drop-shadow(0 0 11px #f6a75b33);transform:rotateY(-10deg);animation:mascot-sway 5.8s ease-in-out infinite alternate;transform-origin:center 80%}
+@keyframes mascot-sway{to{transform:translateY(-7px) rotateY(6deg)}}
+.foot-identity-content{min-width:0;align-self:center;padding-bottom:20px}
+.foot-label{display:inline-flex;align-items:center;gap:10px;color:#f9c579;font:700 12px/1.4 'Pixelify Sans',monospace;letter-spacing:.13em;text-transform:uppercase}
+.foot-label:before{content:'';width:7px;height:7px;transform:rotate(45deg);background:#eeb96f;box-shadow:0 0 12px #f7b96877}
+.foot-identity-content h2{font:700 clamp(27px,3vw,45px)/1.1 'Pixelify Sans',sans-serif;letter-spacing:-.045em;color:#fff0d2;margin:14px 0 6px;overflow-wrap:anywhere}
+.foot-identity-content p{color:#c4b0a2;font-size:14px;line-height:1.55;max-width:270px;margin:0 0 24px}
+.foot-socials{display:grid;grid-template-columns:repeat(3,54px);gap:11px}
+.foot-social{height:54px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #e7a86235;border-radius:15px;background:linear-gradient(145deg,#1d161a,#110d13);box-shadow:0 6px 0 #050507a0, inset 1px 1px 0 #ffffff13;transition:transform .24s cubic-bezier(.2,1.8,.4,1),border-color .25s,background .25s}
+.foot-social img{width:28px;height:28px;object-fit:contain;image-rendering:pixelated;transition:transform .3s}.foot-social:hover{transform:translateY(-5px);border-color:#ffd28e9e;background:#36231e}.foot-social:hover img{transform:scale(1.16)}
+.foot-social:focus-visible,.foot-up:focus-visible{outline:2px solid #ffd280;outline-offset:3px}
+.foot-friends{padding-top:6px;max-width:370px;width:100%;justify-self:end}
+.foot-friends-title{display:flex;align-items:center;gap:12px;white-space:nowrap;color:#f8d79c;font:700 17px/1.4 'Pixelify Sans',sans-serif;letter-spacing:.045em}
+.foot-friends-title:after{content:'';height:1px;flex:1;background:linear-gradient(90deg,#bb90536b,transparent)}
+.foot-friends-sub{font-size:12px;color:#927f74;margin:10px 0 26px;letter-spacing:.04em}
+.foot-friend-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.foot-friend{display:flex;align-items:center;gap:12px;padding:10px 9px 10px 10px;border:1px solid #dc9c4930;background:linear-gradient(135deg,#ffffff08,transparent);border-radius:12px;min-height:76px;min-width:0;transition:transform .3s,border-color .3s,background .3s}
+.foot-friend img{width:48px;height:48px;object-fit:cover;border-radius:9px;border:1px solid #e4a7663d;image-rendering:pixelated;flex-shrink:0;transition:transform .35s}
+.foot-friend strong{font:700 14px/1.2 'Pixelify Sans',sans-serif;letter-spacing:-.01em;overflow-wrap:anywhere}
+.foot-friend:hover{transform:translateY(-5px);border-color:#ebba748a;background:#ffffff12}.foot-friend:hover img{transform:rotate(-5deg) scale(1.08)}
+.foot-project-strip{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:4px;margin-bottom:48px;min-height:70px}
+.foot-project-strip:before,.foot-project-strip:after{content:'';height:1px;width:clamp(15px,8vw,125px);background:linear-gradient(90deg,transparent,#e9af6c36)}
+.foot-project-strip:after{transform:rotate(180deg)}
+.foot-mini{width:49px;height:49px;display:grid;place-items:center;border:1px solid transparent;border-radius:12px;background:transparent;transition:transform .3s,border-color .2s,background .2s}
+.foot-mini img{width:40px;height:40px;object-fit:contain;image-rendering:pixelated;border-radius:7px;filter:drop-shadow(0 7px 8px #0009)}
+.foot-mini:nth-child(even){transform:translateY(-8px)}
+.foot-mini:hover{transform:translateY(-13px) rotate(-5deg);border-color:#e1a2654c;background:#ffffff08}
+.foot-separator{position:relative;height:1px;background:linear-gradient(90deg,transparent,#f5b86c71 16%,#ffd38d9b 50%,#f5b86c71 84%,transparent)}
+.foot-separator:after{content:'';position:absolute;top:-5px;left:50%;width:11px;height:11px;transform:translateX(-50%) rotate(45deg);background:#edb36e;border:1px solid #fff0b27a;box-shadow:0 0 17px #ffac5b6e}
+.foot-bottom{display:flex;align-items:center;gap:25px;justify-content:space-between;padding:26px 0 30px;min-height:105px}
+.foot-legal{display:flex;align-items:center;gap:13px;min-width:0}.foot-legal img{width:35px;height:35px;border-radius:9px;object-fit:cover}.foot-legal p{margin:0;color:#e6c09b;font-size:13px;line-height:1.7}.foot-legal p small{display:block;color:#957f75;font-weight:500;font-size:11px;letter-spacing:.03em}
+.foot-up{display:inline-flex;align-items:center;justify-content:center;width:53px;height:53px;flex-shrink:0;background:#b95f2f;border:2px solid #f9d69b;outline:3px solid #1d0d0c;box-shadow:inset -3px -4px 0 #71301c,0 5px 0 #070405;border-radius:3px;color:#fff8e9;font:700 27px 'Pixelify Sans',sans-serif;transition:transform .2s,background .2s}
+.foot-up:hover{transform:translateY(-5px);background:#d67b38}
+@media(max-width:980px){.foot-main{gap:28px;grid-template-columns:minmax(0,1fr) minmax(285px,.78fr)}.foot-identity{gap:12px}.foot-mascot{flex-basis:140px;height:285px}.foot-mascot img{height:250px}.foot-friend-list{grid-template-columns:1fr}.foot-friend{min-height:65px}.foot-friend img{width:42px;height:42px}}
+@media(max-width:700px){.foot-inner{padding-top:48px}.foot-main{grid-template-columns:1fr;gap:35px;min-height:auto}.foot-friends{justify-self:stretch;max-width:none}.foot-friend-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.foot-identity{justify-content:center;gap:22px}.foot-mascot{flex:0 0 120px;height:242px}.foot-mascot img{height:230px}.foot-mascot .mascot-halo{height:170px}.foot-identity-content h2{font-size:clamp(26px,6vw,43px)}.foot-socials{grid-template-columns:repeat(3,45px);gap:9px}.foot-social{height:45px;border-radius:11px}.foot-social img{width:24px;height:24px}.foot-project-strip{gap:7px;margin:38px 0 31px}.foot-mini{width:42px;height:42px}.foot-mini img{width:35px;height:35px}}
+@media(max-width:430px){.foot-mascot{flex-basis:93px;height:200px}.foot-mascot img{height:190px}.foot-identity{gap:14px}.foot-identity-content h2{font-size:26px}.foot-identity-content p{font-size:12px;margin-bottom:16px}.foot-friend img{width:39px;height:39px}.foot-friend{gap:8px;padding:8px}.foot-friend strong{font-size:12px}.foot-bottom{gap:12px}.foot-legal p{font-size:11px}.foot-legal p small{font-size:10px}.foot-up{width:45px;height:45px}}
+body.footer-in-view .rail{opacity:0;pointer-events:none;transition:opacity .25s}
+@media(prefers-reduced-motion:reduce){.foot-specks i,.foot-mascot img,.foot-mascot .mascot-halo{animation:none!important}.foot-social,.foot-friend,.foot-mini{transition:none!important}}
+
 </style>
 </head>
 <body>
   <div class="bg-drift" aria-hidden="true"></div><div class="cursor-glow" aria-hidden="true"></div><div class="texture" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-nav" id="siteNav"><nav class="nav-shell" aria-label="Main navigation">
-    <a class="brand pressable" href="#home"><img src="assets/logo.webp" alt="bay4lly.online logo"><span>bay4lly<span class="dot">.</span>online</span></a>
+    <a class="brand pressable" href="#home" aria-label="bay4lly.online home"><img src="assets/logo.webp" alt="bay4lly.online logo"><span>bay4lly.online</span></a>
     <div class="nav-list">
-      <a href="#about" data-i18n="nav_about" class="pressable">Hakkımda</a>
-      <a href="#projects" data-i18n="nav_projects" class="pressable">Projeler</a>
-      <a href="#collabs" data-i18n="nav_collabs" class="pressable">İş birlikleri</a>
+      <a href="#home" data-i18n="nav_home" class="pressable">Home</a>
+      <a href="#projects" data-i18n="nav_portfolio" class="pressable">Portfolio</a>
+      <a href="#about" data-i18n="nav_about" class="pressable">About</a><a href="#process" data-i18n="nav_process" class="pressable">Process</a>
+      <a href="#collabs" data-i18n="nav_collabs" class="pressable">Collaborations</a>
     </div>
-    <div class="nav-end"><div class="lang" aria-label="Language"><button type="button" class="pressable" data-lang="tr" aria-pressed="false">TR</button><button type="button" class="pressable active" data-lang="en" aria-pressed="true">EN</button></div><a href="#contact" class="nav-cta pressable" data-i18n="contact">İletişim ↗</a><button class="menu-toggle pressable" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false"><i></i><i></i></button></div>
-  </nav><div class="mobile-links" id="mobileLinks"><a href="#about" data-i18n="nav_about">Hakkımda</a><a href="#projects" data-i18n="nav_projects">Projeler</a><a href="#collabs" data-i18n="nav_collabs">İş birlikleri</a><a href="#contact" data-i18n="nav_contact">İletişim</a></div></header>
-  <aside class="rail" aria-label="Page chapters"><a href="#home" class="active" data-rail="home"><span data-i18n="rail_home">GİRİŞ</span></a><a href="#about" data-rail="about"><span data-i18n="rail_about">HAKKIMDA</span></a><a href="#projects" data-rail="projects"><span data-i18n="rail_projects">PROJELER</span></a><a href="#collabs" data-rail="collabs"><span data-i18n="rail_collabs">EKİP</span></a><a href="#contact" data-rail="contact"><span data-i18n="rail_contact">İLETİŞİM</span></a></aside>
+    <div class="nav-end"><a href="#contact" class="nav-cta pressable" data-i18n="hero_work">Let's work together</a><div class="lang" aria-label="Language"><button type="button" class="pressable" data-lang="tr" aria-pressed="false">TR</button><button type="button" class="pressable active" data-lang="en" aria-pressed="true">EN</button></div><button class="menu-toggle pressable" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button></div>
+  </nav><div class="mobile-links" id="mobileLinks"><a href="#home" data-i18n="nav_home">Home</a><a href="#projects" data-i18n="nav_portfolio">Portfolio</a><a href="#about" data-i18n="nav_about">About</a><a href="#process" data-i18n="nav_process">Process</a><a href="#collabs" data-i18n="nav_collabs">Collaborations</a><a href="#contact" data-i18n="nav_contact">Contact</a></div></header>
+  <aside class="rail" aria-label="Page chapters"><a href="#home" class="active" data-rail="home"><span data-i18n="rail_home">GİRİŞ</span></a><a href="#about" data-rail="about"><span data-i18n="rail_about">ABOUT</span></a><a href="#process" data-rail="process"><span data-i18n="rail_process">PROCESS</span></a><a href="#projects" data-rail="projects"><span data-i18n="rail_projects">PROJELER</span></a><a href="#collabs" data-rail="collabs"><span data-i18n="rail_collabs">EKİP</span></a><a href="#contact" data-rail="contact"><span data-i18n="rail_contact">İLETİŞİM</span></a></aside>
   <main>
-    <section id="home" class="chapter hero" data-chapter="home"><div class="hero-sticky"><div class="wrap hero-layout">
-      <div class="hero-copy"><div class="chapter-num reveal" data-i18n="hero_label">01 / ALİ · GELİŞTİRİCİ</div><h1 class="hero-title reveal" style="--delay:80ms" data-i18n-html="hero_title">Minecraft'a<br><span class="soft">yeni şeyler.</span></h1><p class="hero-text reveal" style="--delay:155ms" data-i18n="hero_text">Selam, ben Ali. Minecraft modları, modern portlar ve içerik üreticileri için 3D araçlar geliştiriyorum.</p><div class="hero-actions reveal" style="--delay:220ms"><a href="#projects" class="action primary pressable"><span data-i18n="explore">Projelerimi keşfet</span><span class="arr">↗</span></a><a href="#about" class="action pressable"><span data-i18n="meet">Beni tanı</span><span class="arr">↓</span></a></div><div class="hero-tags reveal" style="--delay:285ms"><span>Minecraft Mods</span><span>3D Tools</span><span>Ports</span></div></div>
-      <div class="hero-media reveal reveal-scale" style="--delay:210ms"><div class="visual-frame"><img src="assets/heroart.webp" alt="BlockRig Studio Minecraft 3D scene visual" loading="eager"></div><div class="float-badge">3D · WEB TOOLS</div><div class="glass-caption"><strong>BlockRig Studio</strong><small data-i18n="feature_short">Tarayıcıda 3D sahne araçları</small></div></div>
-    </div><div class="scroll-hint"><i></i><span data-i18n="scroll_down">KAYDIRARAK KEŞFET</span></div></div></section>
-    <section id="about" class="chapter about" data-chapter="about"><div class="wrap about-grid"><div><div class="chapter-num reveal" data-i18n="chapter_about">02 / HAKKIMDA</div><h2 class="reveal reveal-left" data-i18n-html="about_title">Merhaba,<br><em>ben Ali.</em></h2></div><div><p class="about-desc reveal reveal-right" data-i18n="about_desc">Oyunların nasıl çalıştığını kurcalamayı seviyorum. Minecraft'a yeni özellikler ekliyor, eski modları güncelliyor ve üreticilerin işini kolaylaştıran araçlar yapıyorum.</p><div class="about-services"><div class="about-row reveal" style="--delay:80ms"><b>01</b><h3 data-i18n="service_mod">Minecraft mod geliştirme</h3><span>Forge / Fabric</span><span class="service-arrow">↗</span></div><div class="about-row reveal" style="--delay:150ms"><b>02</b><h3 data-i18n="service_3d">3D araçlar ve eklentiler</h3><span>WebGL / Blockbench</span><span class="service-arrow">↗</span></div><div class="about-row reveal" style="--delay:220ms"><b>03</b><h3 data-i18n="service_port">Sürüm portları</h3><span>Minecraft</span><span class="service-arrow">↗</span></div></div></div></div></section>
+    <!-- HOME SCENE: Replace assets/home-background.webp with your own supplied Minecraft landscape -->
+    <section id="home" class="chapter hero" data-chapter="home">
+      <div class="home-backdrop" aria-hidden="true"></div>
+      <div class="home-shade" aria-hidden="true"></div>
+      <div class="home-particles" id="homeParticles" aria-hidden="true"></div>
+      <div class="home-character-frame" aria-hidden="true"><img class="home-character" src="assets/skin-character.png" alt=""></div>
+      <div class="home-content">
+        <div class="home-eyebrow reveal" data-i18n="hero_eyebrow">MINECRAFT MODS · 3D TOOLS</div>
+        <h1 class="home-headline reveal" style="--delay:90ms"><img src="assets/pixel-wordmark.png" alt="bay4lly.online" loading="eager"></h1>
+        <div class="home-buttons reveal" style="--delay:180ms">
+          <a href="#projects" class="home-block-button home-primary pressable" data-i18n="hero_portfolio">Portfolio</a>
+          <a href="#contact" class="home-block-button home-secondary pressable" data-i18n="hero_work">Let's work together</a>
+        </div>
+      </div>
+      <a class="home-scroll pressable" href="#about" aria-label="Scroll down"><span data-i18n="scroll_down">SCROLL TO EXPLORE</span><span class="scroll-chevron">⌄</span></a>
+    </section>
+    <section id="about" class="chapter about" data-chapter="about"><div class="about-3d-word" aria-hidden="true"><span>A</span><span>L</span><span>I</span></div><div class="wrap about-grid"><div><div class="chapter-num reveal" data-i18n="chapter_about">02 / HAKKIMDA</div><h2 class="reveal reveal-left" data-i18n-html="about_title">Merhaba,<br><em>ben Ali.</em></h2></div><div><p class="about-desc reveal reveal-right" data-i18n="about_desc">Oyunların nasıl çalıştığını kurcalamayı seviyorum. Minecraft'a yeni özellikler ekliyor, eski modları güncelliyor ve üreticilerin işini kolaylaştıran araçlar yapıyorum.</p><div class="about-services"><div class="about-row reveal" style="--delay:80ms"><b>01</b><h3 data-i18n="service_mod">Minecraft mod geliştirme</h3><span>Forge / Fabric</span><span class="service-arrow">↗</span></div><div class="about-row reveal" style="--delay:150ms"><b>02</b><h3 data-i18n="service_3d">3D araçlar ve eklentiler</h3><span>WebGL / Blockbench</span><span class="service-arrow">↗</span></div><div class="about-row reveal" style="--delay:220ms"><b>03</b><h3 data-i18n="service_port">Sürüm portları</h3><span>Minecraft</span><span class="service-arrow">↗</span></div></div></div></div></section>
+
+    <!-- A warm storyboard for a collaboration workflow. -->
+    <section id="process" class="chapter work-process" data-chapter="process">
+      <div class="process-inner wrap">
+        <div class="process-kicker reveal" data-i18n="chapter_process">03 / HOW IT WORKS</div>
+        <h2 class="process-heading reveal" data-i18n-html="process_title">Before we <span>begin.</span></h2>
+        <p class="process-summary reveal" data-i18n="process_sub">Three simple steps, from the first idea to the finished project.</p>
+        <div class="storyline" aria-label="Three step process">
+          <svg class="story-connector" viewBox="0 0 1220 250" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 90 165 C 220 155, 320 28, 475 120 S 760 218, 830 115 S 1040 32, 1150 130" fill="none" stroke="#ff9c83" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 1"/>
+            <path d="M 90 165 C 220 155, 320 28, 475 120 S 760 218, 830 115 S 1040 32, 1150 130" fill="none" stroke="#ffc5a1" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
+          </svg>
+          <article class="story-card story-amber reveal" style="--delay:40ms">
+            <span class="story-pin"></span>
+            <div class="story-top"><b>01</b><img src="assets/smartbooks.webp" loading="lazy" alt=""></div>
+            <h3 data-i18n="process_1_title">Tell me your idea.</h3>
+            <p data-i18n="process_1_desc">We talk about what you're making and what you need.</p>
+          </article>
+          <article class="story-card story-cream reveal" style="--delay:155ms">
+            <span class="story-pin"></span>
+            <div class="story-top"><b>02</b><img src="assets/geckomesh.webp" loading="lazy" alt=""></div>
+            <h3 data-i18n="process_2_title">Find the right approach.</h3>
+            <p data-i18n="process_2_desc">We decide on the style, scope, and details.</p>
+          </article>
+          <article class="story-card story-lavender reveal" style="--delay:270ms">
+            <span class="story-pin"></span>
+            <div class="story-top"><b>03</b><img src="assets/photochat.webp" loading="lazy" alt=""></div>
+            <h3 data-i18n="process_3_title">Make it real.</h3>
+            <p data-i18n="process_3_desc">Development begins, with room for feedback along the way.</p>
+          </article>
+        </div>
+        <a class="process-contact pressable" href="#contact" data-i18n="process_link">Have a project in mind? Let's talk ↗</a>
+      </div>
+    </section>
     <section id="projects" class="chapter projects" data-chapter="projects"><div class="wrap"><div class="section-head"><div><div class="chapter-num reveal" data-i18n="chapter_projects">03 / ÇALIŞMALAR</div><h2 class="section-title reveal" data-i18n="projects_title">Projeler.</h2></div><p class="sub reveal" data-i18n="projects_sub">Modlardan 3D araçlara, üzerinde çalıştığım projeler.</p></div>
        <article class="project-feature reveal reveal-scale"><div class="feature-art"><img src="assets/blockrig.webp" loading="lazy" alt="BlockRig Studio showcase"></div><div class="feature-body"><div class="eyebrow" data-i18n="featured">ÖNE ÇIKAN PROJE</div><h3>BlockRig<br>Studio.</h3><p data-i18n="feature_desc">Minecraft karakterlerini pozla, sahne oluştur ve 360° görüntüler al.</p><a class="action primary pressable" href="https://blockrig.site" target="_blank" rel="noopener noreferrer"><span data-i18n="visit">Siteyi aç</span><span class="arr">↗</span></a></div></article>
        <div class="project-tiles">
@@ -110,12 +429,44 @@ dialog{border:1px solid #ffffff30;background:#14191ceF;backdrop-filter:blur(20px
          <button class="tile pressable reveal" style="--delay:100ms" data-project="mappet"><span class="tile-arr">↗</span><span class="tile-icon"><img src="assets/mappet.webp" alt="Mappet Reforged"></span><h3>Mappet Reforged</h3><p data-i18n="mappet_sub">Machinima ve betik araçlarının modern portu.</p></button>
          <button class="tile pressable reveal" style="--delay:170ms" data-project="secretrooms"><span class="tile-arr">↗</span><span class="tile-icon"><img src="assets/secretrooms.webp" alt="Secret Rooms"></span><h3>Secret Rooms</h3><p data-i18n="secretrooms_sub">Gizli bloklar ve saklı odalar.</p></button>
        </div></div></section>
-    <section id="collabs" class="chapter collabs" data-chapter="collabs"><div class="wrap"><div class="section-head"><div><div class="chapter-num reveal" data-i18n="chapter_collabs">04 / BİRLİKTE ÜRETTİK</div><h2 class="section-title reveal" data-i18n="collabs_title">Birlikte çalıştıklarım.</h2></div><p class="sub reveal" data-i18n="collabs_sub">Proje ve içerik geliştirme süreçlerinde yollarımız kesişti.</p></div><div class="people-grid">
-         <article class="person reveal" style="--delay:20ms"><span class="person-number">01</span><div class="person-avatar"><img src="assets/samet.webp" alt="Samet Parlak"></div><h3>Samet Parlak</h3><p data-i18n="person_samet">Oyun sistemleri</p></article>
-         <article class="person reveal" style="--delay:115ms"><span class="person-number">02</span><div class="person-avatar"><img src="assets/tosteamr.webp" alt="TostEAMR"></div><h3>TostEAMR</h3><p data-i18n="person_tost">3D ve mod geliştirme</p></article>
-         <article class="person reveal" style="--delay:210ms"><span class="person-number">03</span><div class="person-avatar"><img src="assets/mcparodileri.webp" alt="Minecraft Parodileri"></div><h3>Minecraft Parodileri</h3><p data-i18n="person_mc">Machinima sistemleri</p></article>
-         <article class="person reveal" style="--delay:305ms"><span class="person-number">04</span><div class="person-avatar"><img src="assets/ferited.webp" alt="Ferited"></div><h3>Ferited</h3><p data-i18n="person_ferited">Özel mod özellikleri</p></article>
-       </div></div></section>
+
+    <section id="collabs" class="chapter collabs collabs-marquee" data-chapter="collabs">
+      <div class="collab-ambient" aria-hidden="true"></div>
+      <div class="wrap collabs-heading-area">
+        <div class="chapter-num reveal" data-i18n="chapter_collabs">05 / TOGETHER</div>
+        <h2 class="section-title reveal" data-i18n="collabs_title">Collaborations.</h2>
+        <p class="reveal" data-i18n="collabs_sub">People I've made things with.</p>
+        <div class="collabs-kicker reveal"><span data-i18n="collab_line">MINECRAFT / PEOPLE & PROJECTS</span></div>
+      </div>
+      <!-- Four unique collaborations; two animated opposing lanes, no repeated people. -->
+      <div class="marquee-lanes unique-collab-lanes" aria-label="Collaborations">
+        <div class="marquee-viewport" aria-label="First collaborators">
+          <div class="marquee-track unique-track lane-one">
+            <article class="marquee-card" style="--m-hue:#f2ab3e">
+              <span class="marquee-visual"><img src="assets/samet.webp" alt="Samet Parlak" loading="lazy"></span>
+              <span class="marquee-text"><small>CREATOR / COLLAB</small><strong>Samet Parlak</strong><em data-i18n="person_samet">Gameplay systems</em></span>
+            </article>
+            <article class="marquee-card" style="--m-hue:#eab977">
+              <span class="marquee-visual"><img src="assets/tosteamr.webp" alt="TostEAMR" loading="lazy"></span>
+              <span class="marquee-text"><small>CREATOR / COLLAB</small><strong>TostEAMR</strong><em data-i18n="person_tost">3D & modding</em></span>
+            </article>
+          </div>
+        </div>
+        <div class="marquee-viewport" aria-label="More collaborators">
+          <div class="marquee-track unique-track lane-two">
+            <article class="marquee-card" style="--m-hue:#e5a684">
+              <span class="marquee-visual"><img src="assets/mcparodileri.webp" alt="Minecraft Parodileri" loading="lazy"></span>
+              <span class="marquee-text"><small>CREATOR / COLLAB</small><strong>Minecraft Parodileri</strong><em data-i18n="person_mc">Machinima systems</em></span>
+            </article>
+            <article class="marquee-card" style="--m-hue:#dfb464">
+              <span class="marquee-visual"><img src="assets/ferited.webp" alt="Ferited" loading="lazy"></span>
+              <span class="marquee-text"><small>CREATOR / COLLAB</small><strong>Ferited</strong><em data-i18n="person_ferited">Custom mod features</em></span>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="collab-endcap wrap"><span data-i18n="collab_end">Built through good ideas and shared creativity.</span><span>✳</span></div>
+    </section>
     <section id="contact" class="chapter contact" data-chapter="contact"><div class="wrap contact-shell"><div><div class="chapter-num reveal" data-i18n="chapter_contact">05 / BAĞLANTILAR</div><h2 class="reveal" data-i18n-html="contact_title">Görüşmek<br><em>üzere.</em></h2><p class="reveal" data-i18n="contact_desc">Projelerim, yayınladığım modlar ve sosyal hesaplarım burada.</p></div><div class="links-list reveal reveal-right">
         <a class="social-link pressable" href="https://github.com/bay4lly" target="_blank" rel="noopener noreferrer"><img src="assets/github.png" alt=""> <strong>GitHub</strong><span>↗</span></a>
         <a class="social-link pressable" href="https://modrinth.com/user/bay4lly" target="_blank" rel="noopener noreferrer"><img src="assets/modrinth.png" alt=""><strong>Modrinth</strong><span>↗</span></a>
@@ -124,13 +475,52 @@ dialog{border:1px solid #ffffff30;background:#14191ceF;backdrop-filter:blur(20px
         <a class="social-link pressable" href="https://discord.gg/qmCMm7cSV" target="_blank" rel="noopener noreferrer"><img src="assets/discord.png" alt=""><strong>Discord</strong><span>↗</span></a>
       </div></div></section>
   </main>
-  <footer><div class="wrap footer-content"><div class="footer-brand"><img src="assets/logo.webp" alt=""><span>bay4lly.online</span></div><span>© 2026 Ali (bay4lly)</span><span data-i18n="footer">Minecraft modları & araçları.</span></div></footer>
+  <footer class="game-footer" id="footer" aria-label="bay4lly.online footer">
+  <div class="foot-specks" aria-hidden="true"><i style="--x:9%;--y:5%;--s:3px;--d:11s;--c:#f4b563"></i><i style="--x:52%;--y:28%;--s:5px;--d:13s;--c:#c57f60"></i><i style="--x:95%;--y:51%;--s:8px;--d:15s;--c:#ffe0a2"></i><i style="--x:40%;--y:74%;--s:5px;--d:17s;--c:#f4b563"></i><i style="--x:83%;--y:8%;--s:4px;--d:19s;--c:#c57f60"></i><i style="--x:28%;--y:31%;--s:3px;--d:21s;--c:#ffe0a2"></i><i style="--x:71%;--y:54%;--s:5px;--d:23s;--c:#f4b563"></i><i style="--x:16%;--y:77%;--s:8px;--d:11s;--c:#c57f60"></i><i style="--x:59%;--y:11%;--s:5px;--d:13s;--c:#ffe0a2"></i><i style="--x:4%;--y:34%;--s:4px;--d:15s;--c:#f4b563"></i><i style="--x:47%;--y:57%;--s:3px;--d:17s;--c:#c57f60"></i><i style="--x:90%;--y:80%;--s:5px;--d:19s;--c:#ffe0a2"></i><i style="--x:35%;--y:14%;--s:8px;--d:21s;--c:#f4b563"></i><i style="--x:78%;--y:37%;--s:5px;--d:23s;--c:#c57f60"></i><i style="--x:23%;--y:60%;--s:4px;--d:11s;--c:#ffe0a2"></i><i style="--x:66%;--y:83%;--s:3px;--d:13s;--c:#f4b563"></i><i style="--x:11%;--y:17%;--s:5px;--d:15s;--c:#c57f60"></i><i style="--x:54%;--y:40%;--s:8px;--d:17s;--c:#ffe0a2"></i><i style="--x:97%;--y:63%;--s:5px;--d:19s;--c:#f4b563"></i><i style="--x:42%;--y:86%;--s:4px;--d:21s;--c:#c57f60"></i><i style="--x:85%;--y:20%;--s:3px;--d:23s;--c:#ffe0a2"></i></div>
+  <div class="wrap foot-inner">
+    <div class="foot-main">
+      <div class="foot-identity">
+        <div class="foot-mascot" aria-hidden="true"><span class="mascot-halo"></span><img src="assets/skin-character.png" alt="" loading="lazy"></div>
+        <div class="foot-identity-content">
+          <span class="foot-label" data-i18n="footer_label">MINECRAFT CREATOR</span>
+          <h2>bay4lly.online</h2>
+          <p data-i18n="footer_subtitle">Mods, tools & a little creativity.</p>
+          <div class="foot-socials" aria-label="Social links"><a class="foot-social pressable" href="https://github.com/bay4lly" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><img src="assets/github.png" alt="" loading="lazy"></a>
+<a class="foot-social pressable" href="https://modrinth.com/user/bay4lly" target="_blank" rel="noopener noreferrer" aria-label="Modrinth" title="Modrinth"><img src="assets/modrinth.png" alt="" loading="lazy"></a>
+<a class="foot-social pressable" href="https://www.curseforge.com/members/bay4lly/projects" target="_blank" rel="noopener noreferrer" aria-label="CurseForge" title="CurseForge"><img src="assets/curseforge.png" alt="" loading="lazy"></a>
+<a class="foot-social pressable" href="https://discord.gg/qmCMm7cSV" target="_blank" rel="noopener noreferrer" aria-label="Discord" title="Discord"><img src="assets/discord.png" alt="" loading="lazy"></a>
+<a class="foot-social pressable" href="https://www.youtube.com/@bay4lly" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><img src="assets/youtube.png" alt="" loading="lazy"></a>
+<a class="foot-social pressable" href="#projects" aria-label="Projects" title="Projects"><img src="assets/logo.webp" alt="" loading="lazy"></a></div>
+        </div>
+      </div>
+      <div class="foot-friends">
+        <div class="foot-friends-title" data-i18n="footer_friends">PARTNERS & FRIENDS</div>
+        <div class="foot-friends-sub" data-i18n="footer_friends_sub">People I've created with.</div>
+        <div class="foot-friend-list"><div class="foot-friend" aria-label="Samet Parlak"><img src="assets/samet.webp" alt="" loading="lazy"><strong>Samet Parlak</strong></div>
+<div class="foot-friend" aria-label="TostEAMR"><img src="assets/tosteamr.webp" alt="" loading="lazy"><strong>TostEAMR</strong></div>
+<div class="foot-friend" aria-label="Minecraft Parodileri"><img src="assets/mcparodileri.webp" alt="" loading="lazy"><strong>Minecraft Parodileri</strong></div>
+<div class="foot-friend" aria-label="Ferited"><img src="assets/ferited.webp" alt="" loading="lazy"><strong>Ferited</strong></div></div>
+      </div>
+    </div>
+    <div class="foot-project-strip" aria-label="Projects"><a href="#projects" class="foot-mini pressable" title="PhotoChat" aria-label="PhotoChat"><img src="assets/photochat.webp" alt="" loading="lazy"></a>
+<a href="#projects" class="foot-mini pressable" title="Arcade Mod" aria-label="Arcade Mod"><img src="assets/arcade.webp" alt="" loading="lazy"></a>
+<a href="#projects" class="foot-mini pressable" title="GeckoMesh" aria-label="GeckoMesh"><img src="assets/geckomesh.webp" alt="" loading="lazy"></a>
+<a href="#projects" class="foot-mini pressable" title="Smart Books" aria-label="Smart Books"><img src="assets/smartbooks.webp" alt="" loading="lazy"></a>
+<a href="#projects" class="foot-mini pressable" title="Mappet" aria-label="Mappet"><img src="assets/mappet.webp" alt="" loading="lazy"></a></div>
+    <div class="foot-separator" aria-hidden="true"></div>
+    <div class="foot-bottom">
+      <div class="foot-legal"><img src="assets/logo.webp" alt="" loading="lazy"><p>© 2026 bay4lly.online<small data-i18n="footer_legal">Minecraft mods & creative tools.</small></p></div>
+      <a href="#home" class="foot-up pressable" aria-label="Back to top" title="Back to top" data-footer-up>↑</a>
+    </div>
+  </div>
+</footer>
+<script>/* Keep fixed chapter rail off the final stage. */new IntersectionObserver(([entry])=>document.body.classList.toggle("footer-in-view",entry.isIntersecting),{threshold:.10}).observe(document.querySelector(".game-footer"));</script>
   <dialog id="projectModal" aria-labelledby="modalTitle"><div class="modal-body"><button id="modalClose" type="button" class="close-modal pressable" aria-label="Close">×</button><img class="modal-img" id="modalImg" alt=""><div class="eyebrow" data-i18n="project_overview">PROJE</div><h2 id="modalTitle"></h2><p id="modalDesc"></p><div class="modal-actions"><a id="modalLink" class="action primary pressable" target="_blank" rel="noopener noreferrer"><span data-i18n="browse_projects">Projelere git</span><span class="arr">↗</span></a><button class="action pressable" id="modalBack" type="button" data-i18n="close">Kapat</button></div></div></dialog>
 <script>
 'use strict';
 const localeData={
- tr:{nav_about:'Hakkımda',nav_projects:'Projeler',nav_collabs:'İş birlikleri',nav_contact:'İletişim',contact:'İletişim ↗',rail_home:'GİRİŞ',rail_about:'HAKKIMDA',rail_projects:'PROJELER',rail_collabs:'İŞ BİRLİKLERİ',rail_contact:'İLETİŞİM',hero_label:'01 / ALİ · GELİŞTİRİCİ',hero_title:'Minecraft’a<br><span class="soft">yeni şeyler.</span>',hero_text:'Selam, ben Ali. Minecraft modları, modern portlar ve içerik üreticileri için 3D araçlar geliştiriyorum.',explore:'Projelerimi keşfet',meet:'Beni tanı',feature_short:'Tarayıcıda 3D sahne araçları',scroll_down:'KAYDIRARAK KEŞFET',chapter_about:'02 / HAKKIMDA',about_title:'Merhaba,<br><em>ben Ali.</em>',about_desc:'Minecraft’ın sınırlarını zorlamayı seviyorum. Yeni özellikler ekliyor, eski modları güncelliyor ve içerik üreticilerinin işini kolaylaştıran araçlar geliştiriyorum.',service_mod:'Minecraft mod geliştirme',service_3d:'3D araçlar ve eklentiler',service_port:'Sürüm portları',chapter_projects:'03 / ÇALIŞMALAR',projects_title:'Projeler.',projects_sub:'Modlardan 3D araçlara, üzerinde çalıştığım projeler.',featured:'ÖNE ÇIKAN PROJE',feature_desc:'Minecraft karakterlerini pozla, sahne oluştur ve 360° görüntüler al.',visit:'Siteyi aç',photochat_sub:'Fotoğraflar, oyun içi sohbette.',arcade_sub:'Minecraft içinde arcade makineleri.',geckomesh_sub:'Blockbench ve GeckoLib için mesh araçları.',smartbooks_sub:'Minecraft kitapları için gelişmiş biçimlendirme.',mappet_sub:'Machinima ve betik araçlarının modern portu.',secretrooms_sub:'Gizli bloklar ve saklı odalar.',chapter_collabs:'04 / BİRLİKTE ÜRETTİK',collabs_title:'Birlikte çalıştıklarım.',collabs_sub:'Proje ve içerik geliştirme süreçlerinde yollarımız kesişti.',person_samet:'Oyun sistemleri',person_tost:'3D ve mod geliştirme',person_mc:'Machinima sistemleri',person_ferited:'Özel mod özellikleri',chapter_contact:'05 / BAĞLANTILAR',contact_title:'Görüşmek<br><em>üzere.</em>',contact_desc:'Projelerim, yayınladığım modlar ve sosyal hesaplarım burada.',footer:'Minecraft modları & araçları.',project_overview:'PROJE',browse_projects:'Projelere git',close:'Kapat',modalDesc:{photochat:'Minecraft sohbetinde görsel ve ekran görüntüsü paylaşmaya odaklanan mod.',arcade:'Minecraft dünyalarında oynanabilir arcade makineleri ekleyen mod.',geckomesh:'Blockbench ve GeckoLib arasında mesh iş akışlarını kolaylaştıran araçlar.',smartbooks:'Minecraft kitaplarına daha gelişmiş biçimlendirme seçenekleri ekleyen mod.',mappet:'Mappet’in machinima ve betik özelliklerini yeni sürümlere taşımaya yönelik çalışma.',secretrooms:'Gizli kapılar, saklı odalar ve kamufle bloklara yönelik mod portu.'}},
- en:{nav_about:'About',nav_projects:'Projects',nav_collabs:'Collaborations',nav_contact:'Contact',contact:'Contact ↗',rail_home:'HOME',rail_about:'ABOUT',rail_projects:'PROJECTS',rail_collabs:'COLLABS',rail_contact:'CONTACT',hero_label:'01 / ALI · DEVELOPER',hero_title:'Something new<br><span class="soft">for Minecraft.</span>',hero_text:'Hey, I’m Ali. I create Minecraft mods, modern ports, and 3D tools for content creators.',explore:'Explore my projects',meet:'About me',feature_short:'Browser-based 3D scene tools',scroll_down:'SCROLL TO EXPLORE',chapter_about:'02 / ABOUT',about_title:'Hey there,<br><em>I’m Ali.</em>',about_desc:'I like pushing Minecraft further. I add new features, update older mods, and build tools that make creating content easier.',service_mod:'Minecraft mod development',service_3d:'3D tools & plugins',service_port:'Version ports',chapter_projects:'03 / MY WORK',projects_title:'Projects.',projects_sub:'Minecraft mods, ports, and the tools I build.',featured:'FEATURED PROJECT',feature_desc:'Pose Minecraft characters, build scenes and create 360° renders.',visit:'Visit site',photochat_sub:'Images shared right in chat.',arcade_sub:'Arcade machines inside Minecraft.',geckomesh_sub:'Mesh tools for Blockbench and GeckoLib.',smartbooks_sub:'More formatting options for Minecraft books.',mappet_sub:'Modern port of machinima and scripting tools.',secretrooms_sub:'Hidden blocks and secret rooms.',chapter_collabs:'04 / WORKING TOGETHER',collabs_title:'Collaborations.',collabs_sub:'People and creators I’ve worked with.',person_samet:'Gameplay systems',person_tost:'3D & modding',person_mc:'Machinima systems',person_ferited:'Custom mod features',chapter_contact:'05 / FIND ME',contact_title:'See you<br><em>around.</em>',contact_desc:'My projects, published mods, and social accounts are all here.',footer:'Minecraft mods & tools.',project_overview:'PROJECT',browse_projects:'Browse projects',close:'Close',modalDesc:{photochat:'A Minecraft mod for sharing images and screenshots in chat.',arcade:'A mod bringing playable arcade cabinets into Minecraft worlds.',geckomesh:'Tools simplifying the mesh workflow between Blockbench and GeckoLib.',smartbooks:'A mod that adds richer formatting options to Minecraft books.',mappet:'A project bringing Mappet’s machinima and scripting features to newer versions.',secretrooms:'A mod port featuring hidden doors, secret spaces, and camouflaged blocks.'}}
+ tr:{footer_label:'MINECRAFT GELİŞTİRİCİSİ',footer_subtitle:'Modlar, araçlar ve biraz yaratıcılık.',footer_friends:'İŞ BİRLİKLERİ & DOSTLAR',footer_friends_sub:'Birlikte üretim yaptığım kişiler.',footer_legal:'Minecraft modları ve yaratıcı araçlar.',nav_process:'Süreç',rail_process:'SÜREÇ',chapter_process:'03 / ÇALIŞMA SÜRECİ',process_title:'Başlamadan <span>önce.</span>',process_sub:'Bir fikrin projeye dönüşmesi için üç adım.',process_1_title:'Fikrini konuşalım.',process_1_desc:'Ne yapmak istediğini ve ihtiyaçlarını belirleyelim.',process_2_title:'Detayları netleştirelim.',process_2_desc:'Kapsamı, tarzı ve önemli noktaları planlayalım.',process_3_title:'Geliştirmeye başlayalım.',process_3_desc:'Geri bildirimlerle projeyi adım adım ilerletelim.',process_link:'Bir fikrin mi var? Konuşalım ↗',collab_line:'MINECRAFT / İŞ BİRLİKLERİ',collab_end:'Güzel fikirler, ortak çalışmalar.',nav_home:'Ana sayfa',nav_portfolio:'Portfolyo',hero_eyebrow:'MINECRAFT MODLARI · 3D ARAÇLAR',hero_portfolio:'Portfolyo',hero_work:'Birlikte çalışalım',nav_about:'Hakkımda',nav_projects:'Projeler',nav_collabs:'İş birlikleri',nav_contact:'İletişim',contact:'İletişim ↗',rail_home:'GİRİŞ',rail_about:'HAKKIMDA',rail_projects:'PROJELER',rail_collabs:'İŞ BİRLİKLERİ',rail_contact:'İLETİŞİM',hero_label:'01 / ALİ · GELİŞTİRİCİ',hero_title:'Minecraft’a<br><span class="soft">yeni şeyler.</span>',hero_text:'Selam, ben Ali. Minecraft modları, modern portlar ve içerik üreticileri için 3D araçlar geliştiriyorum.',explore:'Projelerimi keşfet',meet:'Beni tanı',feature_short:'Tarayıcıda 3D sahne araçları',scroll_down:'KAYDIRARAK KEŞFET',chapter_about:'02 / HAKKIMDA',about_title:'Merhaba,<br><em>ben Ali.</em>',about_desc:'Minecraft’ın sınırlarını zorlamayı seviyorum. Yeni özellikler ekliyor, eski modları güncelliyor ve içerik üreticilerinin işini kolaylaştıran araçlar geliştiriyorum.',service_mod:'Minecraft mod geliştirme',service_3d:'3D araçlar ve eklentiler',service_port:'Sürüm portları',chapter_projects:'04 / ÇALIŞMALAR',projects_title:'Projeler.',projects_sub:'Modlardan 3D araçlara, üzerinde çalıştığım projeler.',featured:'ÖNE ÇIKAN PROJE',feature_desc:'Minecraft karakterlerini pozla, sahne oluştur ve 360° görüntüler al.',visit:'Siteyi aç',photochat_sub:'Fotoğraflar, oyun içi sohbette.',arcade_sub:'Minecraft içinde arcade makineleri.',geckomesh_sub:'Blockbench ve GeckoLib için mesh araçları.',smartbooks_sub:'Minecraft kitapları için gelişmiş biçimlendirme.',mappet_sub:'Machinima ve betik araçlarının modern portu.',secretrooms_sub:'Gizli bloklar ve saklı odalar.',chapter_collabs:'05 / BİRLİKTE ÜRETTİK',collabs_title:'Birlikte çalıştıklarım.',collabs_sub:'Proje ve içerik geliştirme süreçlerinde yollarımız kesişti.',person_samet:'Oyun sistemleri',person_tost:'3D ve mod geliştirme',person_mc:'Machinima sistemleri',person_ferited:'Özel mod özellikleri',chapter_contact:'06 / BAĞLANTILAR',contact_title:'Görüşmek<br><em>üzere.</em>',contact_desc:'Projelerim, yayınladığım modlar ve sosyal hesaplarım burada.',footer:'Minecraft modları & araçları.',project_overview:'PROJE',browse_projects:'Projelere git',close:'Kapat',modalDesc:{photochat:'Minecraft sohbetinde görsel ve ekran görüntüsü paylaşmaya odaklanan mod.',arcade:'Minecraft dünyalarında oynanabilir arcade makineleri ekleyen mod.',geckomesh:'Blockbench ve GeckoLib arasında mesh iş akışlarını kolaylaştıran araçlar.',smartbooks:'Minecraft kitaplarına daha gelişmiş biçimlendirme seçenekleri ekleyen mod.',mappet:'Mappet’in machinima ve betik özelliklerini yeni sürümlere taşımaya yönelik çalışma.',secretrooms:'Gizli kapılar, saklı odalar ve kamufle bloklara yönelik mod portu.'}},
+ en:{footer_label:'MINECRAFT CREATOR',footer_subtitle:'Mods, tools & a little creativity.',footer_friends:'PARTNERS & FRIENDS',footer_friends_sub:'People I’ve created with.',footer_legal:'Minecraft mods & creative tools.',nav_process:'Process',rail_process:'PROCESS',chapter_process:'03 / HOW IT WORKS',process_title:'Before we <span>begin.</span>',process_sub:'Three steps from an idea to a project.',process_1_title:'Tell me your idea.',process_1_desc:'We talk about what you want to make and what you need.',process_2_title:'Plan the details.',process_2_desc:'We define the scope, style, and key details.',process_3_title:'Start building.',process_3_desc:'We move forward, making room for feedback.',process_link:'Have an idea? Let’s talk ↗',collab_line:'MINECRAFT / PEOPLE & PROJECTS',collab_end:'Good ideas, built together.',nav_home:'Home',nav_portfolio:'Portfolio',hero_eyebrow:'MINECRAFT MODS · 3D TOOLS',hero_portfolio:'Portfolio',hero_work:'Let’s work together',nav_about:'About',nav_projects:'Projects',nav_collabs:'Collaborations',nav_contact:'Contact',contact:'Contact ↗',rail_home:'HOME',rail_about:'ABOUT',rail_projects:'PROJECTS',rail_collabs:'COLLABS',rail_contact:'CONTACT',hero_label:'01 / ALI · DEVELOPER',hero_title:'Something new<br><span class="soft">for Minecraft.</span>',hero_text:'Hey, I’m Ali. I create Minecraft mods, modern ports, and 3D tools for content creators.',explore:'Explore my projects',meet:'About me',feature_short:'Browser-based 3D scene tools',scroll_down:'SCROLL TO EXPLORE',chapter_about:'02 / ABOUT',about_title:'Hey there,<br><em>I’m Ali.</em>',about_desc:'I like pushing Minecraft further. I add new features, update older mods, and build tools that make creating content easier.',service_mod:'Minecraft mod development',service_3d:'3D tools & plugins',service_port:'Version ports',chapter_projects:'04 / MY WORK',projects_title:'Projects.',projects_sub:'Minecraft mods, ports, and the tools I build.',featured:'FEATURED PROJECT',feature_desc:'Pose Minecraft characters, build scenes and create 360° renders.',visit:'Visit site',photochat_sub:'Images shared right in chat.',arcade_sub:'Arcade machines inside Minecraft.',geckomesh_sub:'Mesh tools for Blockbench and GeckoLib.',smartbooks_sub:'More formatting options for Minecraft books.',mappet_sub:'Modern port of machinima and scripting tools.',secretrooms_sub:'Hidden blocks and secret rooms.',chapter_collabs:'05 / WORKING TOGETHER',collabs_title:'Collaborations.',collabs_sub:'People and creators I’ve worked with.',person_samet:'Gameplay systems',person_tost:'3D & modding',person_mc:'Machinima systems',person_ferited:'Custom mod features',chapter_contact:'06 / FIND ME',contact_title:'See you<br><em>around.</em>',contact_desc:'My projects, published mods, and social accounts are all here.',footer:'Minecraft mods & tools.',project_overview:'PROJECT',browse_projects:'Browse projects',close:'Close',modalDesc:{photochat:'A Minecraft mod for sharing images and screenshots in chat.',arcade:'A mod bringing playable arcade cabinets into Minecraft worlds.',geckomesh:'Tools simplifying the mesh workflow between Blockbench and GeckoLib.',smartbooks:'A mod that adds richer formatting options to Minecraft books.',mappet:'A project bringing Mappet’s machinima and scripting features to newer versions.',secretrooms:'A mod port featuring hidden doors, secret spaces, and camouflaged blocks.'}}
 };
 const projects={
  photochat:{title:'PhotoChat',image:'assets/photochat.webp',url:'https://modrinth.com/user/bay4lly'},
@@ -141,15 +531,16 @@ const projects={
  secretrooms:{title:'Secret Rooms',image:'assets/secretrooms.webp',url:'https://www.curseforge.com/members/bay4lly/projects'}
 };
 let lang='en',activeProject=null;
-try{const saved=localStorage.getItem('bay4lly-locale-v2');if(saved==='en'||saved==='tr')lang=saved;}catch(e){}
+/* English is the default each time the page opens. */
 function setLanguage(next){lang=next;document.documentElement.lang=lang;const t=localeData[lang];document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(t[k]!==undefined)el.textContent=t[k]});document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.dataset.i18nHtml;if(t[k]!==undefined)el.innerHTML=t[k]});document.querySelectorAll('[data-lang]').forEach(btn=>{const active=btn.dataset.lang===lang;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});document.getElementById('menuBtn').setAttribute('aria-label',lang==='tr'?'Menüyü aç':'Open menu');document.getElementById('modalClose').setAttribute('aria-label',lang==='tr'?'Kapat':'Close');if(activeProject)document.getElementById('modalDesc').textContent=t.modalDesc[activeProject];try{localStorage.setItem('bay4lly-locale-v2',lang)}catch(e){}}
 document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));setLanguage(lang);
+const particleHost=document.getElementById('homeParticles');for(let i=0;i<22;i++){let d=document.createElement('i');d.style.left=((i*47.31+13)%100)+'%';d.style.top=((i*23.77+51)%100)+'%';d.style.animationDuration=(13+i%8*2)+'s';d.style.animationDelay=(-i*1.71)+'s';particleHost.appendChild(d)}
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');revealObserver.unobserve(entry.target)}})},{threshold:.10,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 const menuBtn=document.getElementById('menuBtn'),mobileLinks=document.getElementById('mobileLinks');menuBtn.addEventListener('click',()=>{const open=mobileLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open))});mobileLinks.querySelectorAll('a').forEach(el=>el.addEventListener('click',()=>{mobileLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
-const sectionIds=['home','about','projects','collabs','contact'];const sections=sectionIds.map(id=>document.getElementById(id));const railLinks=[...document.querySelectorAll('[data-rail]')];let scrollScheduled=false;
-function onScroll(){scrollScheduled=false;const maxScroll=Math.max(1,document.documentElement.scrollHeight-innerHeight),scrollY=window.scrollY;document.documentElement.style.setProperty('--progress',String(scrollY/maxScroll));if(!reduced){const home=document.getElementById('home'),max=Math.max(innerHeight*.7,home.offsetHeight-innerHeight,1);document.documentElement.style.setProperty('--herop',Math.min(1,Math.max(0,scrollY/max)).toFixed(3));document.documentElement.style.setProperty('--scrolly',Math.min(scrollY,2600)+'px');}const center=scrollY+innerHeight*.43;let index=0;sections.forEach((el,i)=>{if(center>=el.offsetTop)index=i});railLinks.forEach((link,i)=>link.classList.toggle('active',i===index));document.querySelectorAll('.nav-list a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+sectionIds[index]));}
+const sectionIds=['home','about','process','projects','collabs','contact'];const sections=sectionIds.map(id=>document.getElementById(id));const railLinks=[...document.querySelectorAll('[data-rail]')];let scrollScheduled=false;
+function onScroll(){scrollScheduled=false;const maxScroll=Math.max(1,document.documentElement.scrollHeight-innerHeight),scrollY=window.scrollY;document.documentElement.style.setProperty('--progress',String(scrollY/maxScroll));if(!reduced){const home=document.getElementById('home'),max=Math.max(innerHeight*.7,home.offsetHeight-innerHeight,1);document.documentElement.style.setProperty('--herop',Math.min(1,Math.max(0,scrollY/max)).toFixed(3));document.documentElement.style.setProperty('--scrolly',Math.min(scrollY,2600)+'px');}document.body.classList.toggle('has-scrolled',scrollY>85);const center=scrollY+innerHeight*.43;let index=0;sections.forEach((el,i)=>{if(center>=el.offsetTop)index=i});railLinks.forEach((link,i)=>link.classList.toggle('active',i===index));document.querySelectorAll('.nav-list a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+sectionIds[index]));}
 window.addEventListener('scroll',()=>{if(!scrollScheduled){scrollScheduled=true;requestAnimationFrame(onScroll)}},{passive:true});window.addEventListener('resize',onScroll,{passive:true});onScroll();
 if(!reduced)window.addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--cursor-x',e.clientX+'px');document.documentElement.style.setProperty('--cursor-y',e.clientY+'px')},{passive:true});
 /* Animated but silent physical press and ripple */
@@ -161,6 +552,58 @@ const modal=document.getElementById('projectModal');function closeModal(){modal.
 function openProject(key){const p=projects[key];if(!p)return;activeProject=key;document.getElementById('modalTitle').textContent=p.title;document.getElementById('modalImg').src=p.image;document.getElementById('modalImg').alt=p.title;document.getElementById('modalDesc').textContent=localeData[lang].modalDesc[key];document.getElementById('modalLink').href=p.url;modal.showModal()}
 document.querySelectorAll('[data-project]').forEach(card=>card.addEventListener('click',()=>openProject(card.dataset.project)));
 document.getElementById('modalClose').addEventListener('click',closeModal);document.getElementById('modalBack').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});modal.addEventListener('close',()=>activeProject=null);
+
+/* Smooth wheel scrolling: eased desktop movement, native touch, keyboard and reduced motion. */
+(() => {
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = matchMedia('(min-width: 861px) and (hover: hover) and (pointer: fine)');
+  let target=window.scrollY, current=window.scrollY, running=false, writing=false;
+  const updateMode=()=>{document.documentElement.style.scrollBehavior=(desktop.matches&&!reducedMotion.matches)?'auto':''};
+  updateMode(); desktop.addEventListener('change',updateMode);reducedMotion.addEventListener('change',updateMode);
+  const max=()=>Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  function tick(){
+    current+=(target-current)*.13;
+    if(Math.abs(target-current)<.45){current=target;running=false}
+    writing=true;window.scrollTo({top:current,behavior:'instant'});writing=false;
+    if(running)requestAnimationFrame(tick);
+  }
+  function start(){if(!running){running=true;requestAnimationFrame(tick)}}
+  window.addEventListener('wheel',e=>{
+    if(!desktop.matches || reducedMotion.matches || e.defaultPrevented || e.ctrlKey || e.metaKey || e.shiftKey || document.querySelector('dialog[open]') || e.target.closest('dialog,[data-native-scroll]'))return;
+    if(!e.deltaY)return;
+    e.preventDefault();
+    const delta=e.deltaY*(e.deltaMode===1?18:e.deltaMode===2?innerHeight:1);
+    target=Math.max(0,Math.min(max(),target+delta));
+    start();
+  },{passive:false});
+  window.addEventListener('scroll',()=>{if(!writing&&!running){target=window.scrollY;current=target}},{passive:true});
+  window.addEventListener('resize',()=>{target=Math.min(target,max());current=window.scrollY},{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);const section=document.getElementById(id);if(!section)return;
+    if(reducedMotion.matches)return;
+    e.preventDefault();
+    target=Math.max(0,Math.min(max(),section.getBoundingClientRect().top+window.scrollY-(id==='home'?0:75)));
+    if(!desktop.matches){section.scrollIntoView({behavior:'smooth',block:'start'});}else start();
+    history.replaceState(null,'','#'+id);
+  }));
+})();
+
+
+/* Soundless pixel click highlight, retained from V9 with the restored warm palette. */
+const clickLayer=document.createElement('div');clickLayer.className='pixel-click-layer';clickLayer.setAttribute('aria-hidden','true');document.body.appendChild(clickLayer);
+document.addEventListener('click',event=>{
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const target=event.target.closest('button,a,[data-project]');if(!target||target.hasAttribute('disabled'))return;
+ const r=target.getBoundingClientRect();const x=event.detail===0?r.left+r.width/2:event.clientX;
+ const y=event.detail===0?r.top+r.height/2:event.clientY;
+ const ring=document.createElement('span');ring.className='click-burst';ring.style.left=x+'px';ring.style.top=y+'px';clickLayer.append(ring);setTimeout(()=>ring.remove(),540);
+ for(let i=0;i<6;i++){
+  const a=i*Math.PI/3+Math.PI/12,d=20+(i%2)*13;
+  const bit=document.createElement('span');bit.className='click-bit';bit.style.left=x+'px';bit.style.top=y+'px';
+  bit.style.setProperty('--dx',(Math.cos(a)*d).toFixed(1)+'px');bit.style.setProperty('--dy',(Math.sin(a)*d).toFixed(1)+'px');
+  bit.style.setProperty('--bit-color',i%2?'#ffd48b':'#e79464');clickLayer.append(bit);setTimeout(()=>bit.remove(),640);
+ }
+},{passive:true});
 </script>
 </body>
 </html>
